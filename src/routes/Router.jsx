@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import Home from "../layouts/home/Home";
 import HomePage from "../pages/home/HomePage";
 import Login from "../pages/login/Login";
+import MovieListPage from "../pages/movie-list/MovieListPage";
 
 export default function Router() {
   const routing = useRoutes([
@@ -17,6 +18,11 @@ export default function Router() {
         {
           path: "/login",
           element: <Login />,
+        },
+
+        {
+          path: "/movie-list",
+          element: <MovieListPage />,
         },
       ],
     },
