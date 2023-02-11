@@ -30,7 +30,7 @@ export default function Header() {
               fontSize: 30,
               fontFamily: "'Merriweather', serif",
               fontWeight: "bold",
-              color: "rgb(34,34,96)"
+              color: "rgb(34,34,96)",
             }}
           >
             Cybersoft Cinema
@@ -45,6 +45,9 @@ export default function Header() {
           className="d-flex "
         >
           <WrapperInput
+            style={{
+              zIndex: -1,
+            }}
             type="text"
             className="form-control"
             aria-label="Sizing example input"

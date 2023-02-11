@@ -44,6 +44,7 @@ export default function Comment() {
 
   return (
     <div className="container">
+      <h3>Bình Luận Phim</h3>
       <div className="row">{renderComment()}</div>
     </div>
   );
