@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./components/banner/Banner";
+import Comment from "./components/comments/comment";
 import MovieList from "./components/movie-list/MovieList";
 
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
     <div>
       <Banner />
       <MovieList />
+      <Comment />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import {
   FETCH_BANNER_LIST,
+  FETCH_COMMENT_LIST,
   FETCH_MOVIE_LIST,
   SET_USER_INFO,
 } from "../types/userType";
@@ -8,6 +9,7 @@ const DEFAULT_STATE = {
   userInfo: null,
   bannerList: [],
   movieList: [],
+  commentList: [],
 };
 if (localStorage.getItem("USER_INFO_KEY")) {
   DEFAULT_STATE.userInfo = JSON.parse(localStorage.getItem("USER_INFO_KEY"));
@@ -26,6 +28,11 @@ export const userReducer = (state = DEFAULT_STATE, action) => {
     case FETCH_MOVIE_LIST:
       state.movieList = payload;
       break;
+
+    case FETCH_COMMENT_LIST: {
+      state.commentList = payload;
+      break;
+    }
     default:
       break;
   }

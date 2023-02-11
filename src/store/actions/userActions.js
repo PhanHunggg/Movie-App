@@ -2,6 +2,7 @@ import axios from "axios";
 import { axiosRequest } from "../../configs/axios.config";
 import {
   FETCH_BANNER_LIST,
+  FETCH_COMMENT_LIST,
   FETCH_MOVIE_LIST,
   SET_USER_INFO,
 } from "../types/userType";
@@ -36,6 +37,20 @@ export const fetchMovieListAction = () => {
 
     dispatch({
       type: FETCH_MOVIE_LIST,
+      payload: result.data.content,
+    });
+  };
+};
+
+export const fetchCommentListAction = () => {
+  return async (dispatch) => {
+    const result = await axiosRequest({
+      url: "/QuanLyPhim/LayDanhSachPhim?maNhom=GP05",
+      method: "GET",
+    });
+
+    dispatch({
+      type: FETCH_COMMENT_LIST,
       payload: result.data.content,
     });
   };
