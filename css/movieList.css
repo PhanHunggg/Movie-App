@@ -1,0 +1,72 @@
+.movie .card {
+  width: 340px;
+  height: 463px;
+}
+.movie .card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.288);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.movie .card:hover::after {
+  opacity: 1;
+}
+.movie .card a {
+  cursor: pointer;
+}
+.movie .card img {
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.movie .card p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  border: 3px solid white;
+  padding: 6px 17px;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 1;
+  border-radius: 6px;
+}
+.movie .card p:hover {
+  background-color: rgb(242, 107, 56);
+  color: white;
+  border: 3px solid rgb(242, 107, 56);
+}
+.movie .card:hover p {
+  opacity: 1;
+}
+.movie h4 {
+  color: #43464b !important;
+  font-size: 16px;
+  text-transform: uppercase !important;
+  padding: 10px 0 15px;
+  font-family: "Merriweather", serif;
+}
+
+.btn_xemThem a {
+  background-color: white;
+  color: rgb(242, 107, 56);
+  font-weight: 500;
+  border: 1px solid rgb(242, 107, 56);
+  transition: all 0.5s;
+}
+.btn_xemThem a:hover {
+  background-color: rgb(242, 107, 56);
+  color: white;
+  border: 1px solid rgb(242, 107, 56);
+}/*# sourceMappingURL=movieList.css.map */

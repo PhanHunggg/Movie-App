@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchMovieListAction } from "../../store/actions/userActions";
 
 export default function MovieListPage() {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const stateMovie = useSelector((state) => state.userReducer);
   useEffect(() => {
@@ -18,10 +21,10 @@ export default function MovieListPage() {
       return (
         <div key={ele.maPhim} className="col-4">
           <div className="card">
-            <a href="#">
+            <Link to={`/movie-detail/${ele.maPhim}`}>
               <img src={ele.hinhAnh} alt="test" />
               <p>Mua vé</p>
-            </a>
+            </Link>
           </div>
           <h4>{ele.tenPhim} </h4>
         </div>

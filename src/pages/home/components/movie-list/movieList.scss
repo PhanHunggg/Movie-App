@@ -18,6 +18,9 @@
     &:hover::after {
       opacity: 1;
     }
+    a {
+      cursor: pointer;
+    }
 
     img {
       background: transparent;
@@ -32,7 +35,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: rgb(255, 255, 255);
-      border: 1px solid white;
+      border: 3px solid white;
       padding: 6px 17px;
       font-size: 18px;
       font-weight: 500;
@@ -40,6 +43,11 @@
       transition: all 0.5s;
       z-index: 1;
       border-radius: 6px;
+      &:hover {
+        background-color: rgb(242, 107, 56);
+        color: white;
+        border: 3px solid rgb(242, 107, 56);
+      }
     }
     &:hover p {
       opacity: 1;
