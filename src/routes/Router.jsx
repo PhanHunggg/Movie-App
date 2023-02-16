@@ -1,6 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import Home from "../layouts/home/Home";
+import Booking from "../pages/home/components/booking/Booking";
 import HomePage from "../pages/home/HomePage";
 import Login from "../pages/login/Login";
 import MovieDetail from "../pages/movie-detail/MovieDetail";
@@ -29,6 +30,7 @@ export default function Router() {
           path: "/movie-detail/:id",
           element: <MovieDetail />,
         },
+        
       ],
     },
   ]);

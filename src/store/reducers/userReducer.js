@@ -1,5 +1,6 @@
 import {
   FETCH_BANNER_LIST,
+  FETCH_CHAIR_LIST,
   FETCH_COMMENT_LIST,
   FETCH_MOVIE_DETAIL,
   FETCH_MOVIE_LIST,
@@ -14,6 +15,7 @@ const DEFAULT_STATE = {
   commentList: [],
   showTimeList: [],
   movieDetail: null,
+  chairList: [],
 };
 if (localStorage.getItem("USER_INFO_KEY")) {
   DEFAULT_STATE.userInfo = JSON.parse(localStorage.getItem("USER_INFO_KEY"));
@@ -45,6 +47,10 @@ export const userReducer = (state = DEFAULT_STATE, action) => {
 
     case FETCH_MOVIE_DETAIL: {
       state.movieDetail = payload;
+      break;
+    }
+    case FETCH_CHAIR_LIST: {
+      state.chairList = payload;
       break;
     }
     default:

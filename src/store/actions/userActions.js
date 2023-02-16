@@ -3,6 +3,7 @@ import { axiosRequest } from "../../configs/axios.config";
 import { GROUP_ID } from "../../constants";
 import {
   FETCH_BANNER_LIST,
+  FETCH_CHAIR_LIST,
   FETCH_COMMENT_LIST,
   FETCH_MOVIE_DETAIL,
   FETCH_MOVIE_LIST,
@@ -83,6 +84,20 @@ export const fetchMovieDetailAction = (id) => {
     dispatch({
       type: FETCH_MOVIE_DETAIL,
       payload: result.data.content,
+    });
+  };
+};
+
+export const fetchChairListAction = (id) => {
+  return async (dispatch) => {
+    const result = await axiosRequest({
+      url: `/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`,
+      method: "GET",
+    });
+
+    dispatch({
+      type: FETCH_CHAIR_LIST,
+      payload: result,
     });
   };
 };

@@ -12,7 +12,7 @@ export default function Login() {
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Email address</label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
