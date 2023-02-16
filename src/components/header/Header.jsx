@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperInput } from "./headerStyled";
+import "./header.scss";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function Header() {
     <>
       <nav className="navbar navbar-expand-sm navbar-light justify-content-around">
         <NavLink className="navbar-brand d-flex align-items-center " to="/">
-          <img src="./logo.png" alt="logo" />
+          <img src="./images/logoCinema.png" alt="logoCinema" />
           <p
             className="font-weight-bold"
             style={{
@@ -45,16 +46,16 @@ export default function Header() {
           className="d-flex "
         >
           <WrapperInput
-            style={{
-              zIndex: -1,
-            }}
             type="text"
             className="form-control"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
             placeholder="Tìm kiếm phim..."
           ></WrapperInput>
-          <button style={{ backgroundColor: "white", border: "none" }}>
+          <button
+            className="btn-focus"
+            style={{ backgroundColor: "white", border: "none" }}
+          >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>

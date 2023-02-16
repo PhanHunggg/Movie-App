@@ -1,20 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginApi } from "../../services/user";
+import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [form, setForm] = useState({
+    taiKhoan: "",
+    matKhau: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const result = await loginApi(form);
+
+    localStorage.setItem("USER_INFO_KEY", JSON.stringify(result.data.content));
+
+    dispatch(setUserAction(result.data.content));
+    navigate("/");
+  };
   return (
     <>
       <div className="container py-5">
         <div className="row ">
           <div className="col-6">
             <WrapperForm className="form">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Email address</label>
+                  <label htmlFor="exampleInputEmail1">Username</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                   />
                   <small id="emailHelp" className="form-text text-muted">
@@ -24,9 +51,10 @@ export default function Login() {
                 <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Password</label>
                   <input
+                    onChange={handleChange}
+                    name="matKhau"
                     type="password"
                     className="form-control"
-                    id="exampleInputPassword1"
                   />
                 </div>
                 <div className="button_submit text-center">

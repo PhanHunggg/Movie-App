@@ -1,11 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchMovieListAction } from "../../../../store/actions/userActions";
 import "./movieList.scss";
 
 export default function MovieList() {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const navigateMovieList = () => {
+    navigate("/movie-list");
+  };
+
+  const navigateMovieDetail = (id) => {
+    navigate(`/movie-detail/${id}`);
+  };
 
   const stateMovie = useSelector((state) => state.userReducer);
   useEffect(() => {
@@ -24,10 +34,12 @@ export default function MovieList() {
           {idx <= 2 && (
             <div className="col-4">
               <div className="card">
-                <Link to={`/movie-detail/${ele.maPhim}`}>
+                <div>
                   <img style={{ width: "100%" }} src={ele.hinhAnh} alt="test" />
-                  <p>Mua vé</p>
-                </Link>
+                  <button onClick={() => navigateMovieDetail(ele.maPhim)}>
+                    Mua vé
+                  </button>
+                </div>
               </div>
               <h4>{ele.tenPhim} </h4>
             </div>
@@ -40,10 +52,10 @@ export default function MovieList() {
     <div className="container py-5">
       <div className="row movie">{renderMovieList()}</div>
       <div className="text-right btn_xemThem">
-        <Link className="btn btn-primary " to="/movie-list">
+        <button onClick={navigateMovieList} className="btn btn-primary ">
           XEM THÊM
           <i className="fa-solid fa-arrow-right pl-2"></i>
-        </Link>
+        </button>
       </div>
     </div>
   );

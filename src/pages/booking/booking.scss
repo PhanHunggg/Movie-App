@@ -1,0 +1,125 @@
+.seat__all {
+    .seat {
+        vertical-align: middle;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 22px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+        border: none;
+
+        &:focus {
+            outline: none;
+            box-shadow: none !important;
+        }
+    }
+
+    .color__notBooked {
+        background-color: #f0f0f0;
+    }
+}
+
+
+
+
+
+.screen {
+    border-bottom: 3px solid #969b9f;
+    width: 35%;
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 6px;
+    margin: 30px auto;
+}
+
+.options__seat {
+    .background-danger {
+
+        color: black;
+
+        &::before {
+            content: "";
+            vertical-align: middle;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            background-color: #dc3545;
+        }
+
+    }
+
+    .background-success {
+        color: black;
+
+        &::before {
+            content: "";
+            vertical-align: middle;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            background-color: #218838;
+        }
+    }
+
+    .background-warning {
+        &::before {
+            content: "";
+            vertical-align: middle;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            background-color: #e0a800;
+        }
+    }
+
+    .background-info {
+        &::before {
+            content: "";
+            vertical-align: middle;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            background-color: #17a2b8;
+        }
+    }
+
+    .color__notBooked__bScreen {
+        &::before {
+            content: "";
+            vertical-align: middle;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            background-color: #f0f0f0;
+        }
+    }
+}
