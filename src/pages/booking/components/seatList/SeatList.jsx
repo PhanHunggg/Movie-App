@@ -6,7 +6,7 @@ import Seat from "./Seat";
 
 export default function SeatList(props) {
   const renderSeatList = () => {
-    return props.movieDetail?.danhSachGhe?.map((ele, idx) => {
+    return props.movieDetail?.map((ele, idx) => {
       return (
         <React.Fragment key={ele.maGhe}>
           <Seat ele={ele} />

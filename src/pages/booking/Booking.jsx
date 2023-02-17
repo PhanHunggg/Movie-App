@@ -21,7 +21,8 @@ export default function Booking() {
   return (
     <div className="py-5">
       <div className="row">
-        <SeatList movieDetail={movieDetail} />
+        <SeatDetail />
+        <SeatList movieDetail={movieDetail.danhSachGhe} />
         <SeatListSelect movieDetail={movieDetail.thongTinPhim} />
       </div>
     </div>
