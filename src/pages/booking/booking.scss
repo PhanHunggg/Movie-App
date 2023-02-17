@@ -1,25 +1,44 @@
-.seat__all {
-    .seat {
-        vertical-align: middle;
-        display: inline-block;
-        width: 35px;
-        height: 35px;
-        font-size: 12px;
-        text-align: center;
-        line-height: 22px;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        cursor: pointer;
-        border: none;
+.seat__border {
+    margin: 0 100px;
 
-        &:focus {
-            outline: none;
-            box-shadow: none !important;
-        }
+    border: 10px solid #f26b38;
+    border-top: 60px solid #f26b38;
+    position: relative;
+
+    h2 {
+        position: absolute;
+        top: -45px;
+        color: white;
+        text-transform: uppercase;
+        font-size: 24px;
     }
 
-    .color__notBooked {
-        background-color: #f0f0f0;
+    .seat__all {
+        margin-left: 135px;
+        margin-top: 40px;
+
+        .seat {
+            vertical-align: middle;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            cursor: pointer;
+            border: none;
+
+            &:focus {
+                outline: none;
+                box-shadow: none !important;
+            }
+        }
+
+        .color__notBooked {
+            background-color: #f0f0f0;
+        }
     }
 }
 
@@ -121,5 +140,41 @@
             margin-right: 5px;
             background-color: #f0f0f0;
         }
+    }
+}
+
+.seat__selected {
+    background-color: #f1f1f1;
+    max-width: 22% !important;
+    // position: fixed !important;
+    right: 100px;
+
+    h4 {
+        font-size: 17px;
+        line-height: 20px;
+        color: #43464b;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .ticket__info {
+        .dotted-line {
+            border-bottom: 1px dotted #ced0da;
+            padding: 10px 0;
+        }
+    }
+
+    .button__booking {
+        display: inline-block;
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #ffffff;
+        background-color: #f26b38;
+        padding: 10px;
+        text-decoration: none;
+        line-height: 1;
     }
 }

@@ -16,6 +16,7 @@ export default function Booking() {
   const getTicketDetail = async () => {
     const result = await fetchTicketDetailApi(params.showTimeId);
     setMovieDetail(result.data.content);
+    // console.log(result.data.content);
   };
   return (
     <div className="py-5">
