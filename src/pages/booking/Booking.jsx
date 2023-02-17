@@ -16,13 +16,12 @@ export default function Booking() {
   const getTicketDetail = async () => {
     const result = await fetchTicketDetailApi(params.showTimeId);
     setMovieDetail(result.data.content);
-    console.log(movieDetail);
   };
   return (
     <div className="py-5">
       <div className="row">
         <SeatDetail />
-        <SeatList movieDetail={movieDetail} />
+        <SeatList movieDetail={movieDetail.danhSachGhe} />
         <SeatListSelect movieDetail={movieDetail.thongTinPhim} />
       </div>
     </div>
