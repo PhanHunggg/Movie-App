@@ -1,7 +1,55 @@
 import React, { useState } from "react";
+import * as _ from "lodash";
+import { useNavigate, useParams } from "react-router-dom";
+import { bookTicketApi } from "../../../../services/ticket";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+
+import "sweetalert2/src/sweetalert2.scss";
 
 export default function SeatListSelect(props) {
-  console.log(props.movieDetail);
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+  const params = useParams();
+  const navigate = useNavigate();
+  const renderSeatListSelect = () => {
+    return props.seatList.map((ele) => {
+      return (
+        <React.Fragment key={ele.maGhe}>
+          <p className="badge badge-success mr-2 mb-0">{ele.tenGhe}</p>
+        </React.Fragment>
+      );
+    });
+  };
+
+  const bookTicket = async () => {
+    const data = {
+      maLichChieu: params.showTimeId,
+      danhSachVe: props.seatList.map((ele) => {
+        return {
+          maGhe: ele.maGhe,
+          giaVe: ele.giaVe,
+        };
+      }),
+    };
+
+    await bookTicketApi(data);
+    Toast.fire({
+      icon: "success",
+      title: "Bạn đã đặt vé thành công",
+    });
+
+    navigate("/");
+  };
+
   return (
     <div className="col-3 seat__selected">
       <img
@@ -12,19 +60,34 @@ export default function SeatListSelect(props) {
       <h4 className="mb-3 name__film mt-2">{props.movieDetail?.tenPhim}</h4>
       <div className="ticket__info">
         <div className="dotted-line">
-          <b>Rạp: Rạp 8 | BHD Star Cineplex - 3/2</b>
+          <b>
+            Rạp: {props.movieDetail?.tenRap} | {props.movieDetail?.tenCumRap}
+          </b>
         </div>
         <div className="dotted-line">
-          <b>Xuất chiếu: 01:11 | 24/11/2022</b>
+          <b>
+            Xuất chiếu: {props.movieDetail?.gioChieu} |{" "}
+            {props.movieDetail?.ngayChieu}
+          </b>
         </div>
         <div className="dotted-line">
-          <b>Ghế: </b>
+          <b>Ghế: {renderSeatListSelect()}</b>
         </div>
       </div>
       <div className="ticket__price">
-        <p>Tổng: 4000 VNĐ</p>
+        <p>
+          Tổng:{" "}
+          <span>
+            {_.sumBy(props.seatList, "giaVe").toLocaleString("it-IT", {
+              style: "currency",
+              currency: "VND",
+            })}
+          </span>
+        </p>
       </div>
-      <button className="btn btn-warning button__booking">BOOK</button>
+      <button onClick={bookTicket} className="btn btn-warning button__booking">
+        BOOK
+      </button>
     </div>
   );
 }

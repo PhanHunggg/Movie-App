@@ -35,5 +35,9 @@ export default function Banner() {
       );
     });
   };
-  return <Carousel autoplay>{renderBannerList()}</Carousel>;
+  return (
+    <Carousel style={{ paddingTop: "116px" }} autoplay>
+      {renderBannerList()}
+    </Carousel>
+  );
 }

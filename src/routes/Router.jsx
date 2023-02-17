@@ -1,5 +1,6 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
+import AuthGuard from "../guards/AuthGuard";
 import NoAuthGuard from "../guards/NoAuthGuard";
 import Home from "../layouts/home/Home";
 import Booking from "../pages/booking/Booking";
@@ -31,8 +32,14 @@ export default function Router() {
         },
 
         {
-          path: "/booking/:showTimeId",
-          element: <Booking />,
+          path: "/",
+          element: <AuthGuard />,
+          children: [
+            {
+              path: "/booking/:showTimeId",
+              element: <Booking />,
+            },
+          ],
         },
 
         {

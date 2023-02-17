@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { axiosRequest } from "../configs/axios.config";
 
 export const loginApi = (user) => {

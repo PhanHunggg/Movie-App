@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { fetchTicketDetailApi } from "../../../../services/ticket";
+
 import SeatDetail from "../seatDetail/SeatDetail";
 import Seat from "./Seat";
 
@@ -9,7 +8,7 @@ export default function SeatList(props) {
     return props.movieDetail?.map((ele, idx) => {
       return (
         <React.Fragment key={ele.maGhe}>
-          <Seat ele={ele} />
+          <Seat handleSeatSelect={props.handleSeatSelect} ele={ele} />
           {(idx + 1) % 16 === 0 && <br />}
         </React.Fragment>
       );

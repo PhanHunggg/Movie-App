@@ -1,8 +1,24 @@
-.btn-focus {
-  &:focus {
-    outline: none !important;
+.header {
+  position: fixed !important;
+  width: 100%;
+  z-index: 5;
+  background-color: rgb(253,252,240);
+
+  .btn-focus {
+    &:focus {
+      outline: none !important;
+    }
   }
-}
-.form-control:focus {
-  box-shadow: none !important;
+  .form-control:focus {
+    box-shadow: none !important;
+  }
+  .user {
+    .fa-solid {
+      margin-right: 5px;
+    }
+    span {
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
 }

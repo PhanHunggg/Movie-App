@@ -20,94 +20,92 @@ export default function Header() {
     navigate("/");
   };
   return (
-    <>
-      <nav className="navbar navbar-expand-sm navbar-light justify-content-around">
-        <NavLink className="navbar-brand d-flex align-items-center " to="/">
-          <img src="./images/logoCinema.png" alt="logoCinema" />
-          <p
-            className="font-weight-bold"
-            style={{
-              margin: 0,
-              fontSize: 30,
-              fontFamily: "'Merriweather', serif",
-              fontWeight: "bold",
-              color: "rgb(34,34,96)",
-            }}
-          >
-            Cybersoft Cinema
-          </p>
-        </NavLink>
-        <div
+    <nav className="navbar navbar-expand-sm navbar-light justify-content-around header">
+      <NavLink className="navbar-brand d-flex align-items-center " to="/">
+        <img src="./images/logoCinema.png" alt="logoCinema" />
+        <p
+          className="font-weight-bold"
           style={{
-            border: "1px solid #ced0da",
-            paddingRight: 8,
-            borderRadius: 6,
+            margin: 0,
+            fontSize: 30,
+            fontFamily: "'Merriweather', serif",
+            fontWeight: "bold",
+            color: "rgb(34,34,96)",
           }}
-          className="d-flex "
         >
-          <WrapperInput
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Tìm kiếm phim..."
-          ></WrapperInput>
-          <button
-            className="btn-focus"
-            style={{ backgroundColor: "white", border: "none" }}
-          >
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-
+          Cybersoft Cinema
+        </p>
+      </NavLink>
+      <div
+        style={{
+          border: "1px solid #ced0da",
+          paddingRight: 8,
+          borderRadius: 6,
+        }}
+        className="d-flex "
+      >
+        <WrapperInput
+          type="text"
+          className="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="Tìm kiếm phim..."
+        ></WrapperInput>
         <button
-          className="navbar-toggler d-lg-none"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          className="btn-focus"
+          style={{ backgroundColor: "white", border: "none" }}
         >
-          <span className="navbar-toggler-icon"></span>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </button>
-        <div
-          style={{ flexGrow: 0 }}
-          className="collapse navbar-collapse"
-          id="collapsibleNavId"
-        >
-          <div className="ml-auto">
-            {userState?.userInfo ? (
-              <>
-                <span className="mr-3">Hello {userState.userInfo.hoTen}</span>
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-danger"
-                  type="logout"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  className="btn btn-outline-info my-2 my-sm-0 mr-2"
-                  type="sumit"
-                >
-                  Register
-                </button>
-                <button
-                  onClick={navigateLogin}
-                  className="btn btn-outline-success my-2 my-sm-0"
-                >
-                  Login
-                </button>
-              </>
-            )}
-          </div>
+      </div>
+
+      <button
+        className="navbar-toggler d-lg-none"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div
+        style={{ flexGrow: 0 }}
+        className="collapse navbar-collapse"
+        id="collapsibleNavId"
+      >
+        <div className=" user ml-auto">
+          {userState?.userInfo ? (
+            <>
+              <i className="fa-solid fa-user"></i>
+              <span className="mr-3">{userState.userInfo.hoTen}</span>
+              <button
+                onClick={handleLogout}
+                className="btn btn-danger"
+                type="logout"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="btn btn-outline-info my-2 my-sm-0 mr-2"
+                type="sumit"
+              >
+                Register
+              </button>
+              <button
+                onClick={navigateLogin}
+                className="btn btn-outline-success my-2 my-sm-0"
+              >
+                Login
+              </button>
+            </>
+          )}
         </div>
-      </nav>
-      <hr className="my-0" />
-    </>
+      </div>
+    </nav>
   );
 }

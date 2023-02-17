@@ -18,12 +18,31 @@ export default function Booking() {
     setMovieDetail(result.data.content);
     // console.log(result.data.content);
   };
+
+  const handleSeatSelect = (seat) => {
+    const data = [...seatList];
+    const idx = data.findIndex((ele) => ele.maGhe === seat.maGhe);
+
+    if (idx !== -1) {
+      data.splice(idx, 1);
+    } else {
+      data.push(seat);
+    }
+
+    setSeatList(data);
+  };
   return (
     <div className="py-5">
       <div className="row">
         <SeatDetail />
-        <SeatList movieDetail={movieDetail.danhSachGhe} />
-        <SeatListSelect movieDetail={movieDetail.thongTinPhim} />
+        <SeatList
+          handleSeatSelect={handleSeatSelect}
+          movieDetail={movieDetail.danhSachGhe}
+        />
+        <SeatListSelect
+          seatList={seatList}
+          movieDetail={movieDetail.thongTinPhim}
+        />
       </div>
     </div>
   );

@@ -16,7 +16,9 @@ export default function Seat(props) {
 
   const handleSelectSeat = () => {
     setIsSelected(!isSelected);
+    props.handleSeatSelect(props.ele);
   };
+
   return (
     <button
       onClick={handleSelectSeat}

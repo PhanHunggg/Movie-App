@@ -165,6 +165,15 @@
             padding: 10px 0;
         }
     }
+    .ticket__price{
+        p{
+            font-size: 18px;
+            font-weight: 700;
+            span{
+                font-weight: 500;
+            }
+        }
+    }
 
     .button__booking {
         display: inline-block;

@@ -22,17 +22,27 @@ export default function Login() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const result = await loginApi(form);
+    try {
+      event.preventDefault();
+      const result = await loginApi(form);
 
-    localStorage.setItem("USER_INFO_KEY", JSON.stringify(result.data.content));
+      localStorage.setItem(
+        "USER_INFO_KEY",
+        JSON.stringify(result.data.content)
+      );
 
-    dispatch(setUserAction(result.data.content));
-    navigate("/");
+      dispatch(setUserAction(result?.data.content));
+
+      navigate("/");
+    } catch (error) {}
   };
+
   return (
     <>
-      <div className="container py-5">
+      <div
+        style={{ paddingTop: "175px", paddingBottom: "50px" }}
+        className="container "
+      >
         <div className="row ">
           <div className="col-6">
             <WrapperForm className="form">
