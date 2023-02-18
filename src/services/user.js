@@ -1,4 +1,3 @@
-
 import { axiosRequest } from "../configs/axios.config";
 
 export const loginApi = (user) => {
@@ -7,4 +6,5 @@ export const loginApi = (user) => {
     method: "POST",
     data: user,
   });
+
 };

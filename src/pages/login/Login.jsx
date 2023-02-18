@@ -4,17 +4,33 @@ import { useNavigate } from "react-router-dom";
 import { loginApi } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+
+import "sweetalert2/src/sweetalert2.scss";
 
 export default function Login() {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2100,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     taiKhoan: "",
     matKhau: "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (even) => {
+    const { name, value } = even.target;
     setForm({
       ...form,
       [name]: value,
@@ -22,8 +38,9 @@ export default function Login() {
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
+
     try {
-      event.preventDefault();
       const result = await loginApi(form);
 
       localStorage.setItem(
@@ -32,9 +49,19 @@ export default function Login() {
       );
 
       dispatch(setUserAction(result?.data.content));
+      Toast.fire({
+        icon: "success",
+        title: "Đăng nhập thành công!",
+      });
 
       navigate("/");
-    } catch (error) {}
+    } catch (error) {
+      Toast.fire({
+        icon: "warning",
+        title: "Tài khoản hoặc mật khẩu không đúng!",
+      });
+      return;
+    }
   };
 
   return (
@@ -50,9 +77,10 @@ export default function Login() {
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Username</label>
                   <input
+                    onChange={handleChange}
+                    name="taiKhoan"
                     type="text"
                     className="form-control"
-                    aria-describedby="emailHelp"
                   />
                   <small id="emailHelp" className="form-text text-muted">
                     We'll never share your email with anyone else.
