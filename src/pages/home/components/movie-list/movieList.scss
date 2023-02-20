@@ -1,4 +1,24 @@
 .movie {
+  .swiper {
+    display: inline-block;
+    width: 100%;
+
+    .swiper-wrapper {
+      margin-left: 25px;
+    }
+
+    .swiper-button-prev {
+      margin-left: 20px;
+      color: 6B7280;
+    }
+
+    .swiper-button-next {
+      margin-right: 10px;
+      color: 9CA3AF;
+    }
+  }
+
+
   .card {
     width: 340px;
     height: 463px;
@@ -18,6 +38,7 @@
     &:hover::after {
       opacity: 1;
     }
+
     a {
       cursor: pointer;
     }
@@ -29,6 +50,7 @@
       height: 100%;
       object-fit: cover;
     }
+
     button {
       position: absolute;
       top: 50%;
@@ -44,16 +66,19 @@
       transition: all 0.5s;
       z-index: 1;
       border-radius: 6px;
+
       &:hover {
         background-color: rgb(242, 107, 56);
         color: white;
         border: 3px solid rgb(242, 107, 56);
       }
     }
+
     &:hover button {
       opacity: 1;
     }
   }
+
   h4 {
     color: #43464b !important;
     font-size: 16px;
@@ -71,6 +96,7 @@
 
     border: 1px solid rgb(242, 107, 56);
     transition: all 0.5s;
+
     &:hover {
       background-color: rgb(242, 107, 56);
       color: white;
