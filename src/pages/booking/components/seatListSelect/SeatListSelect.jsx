@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import * as _ from "lodash";
 import { useNavigate, useParams } from "react-router-dom";
 import { bookTicketApi } from "../../../../services/ticket";
-import Swal from "sweetalert2/dist/sweetalert2.js";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
-import "sweetalert2/src/sweetalert2.scss";
+import 'sweetalert2/src/sweetalert2.scss'
 
 export default function SeatListSelect(props) {
   const Toast = Swal.mixin({

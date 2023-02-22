@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import { fetchTicketDetailApi } from "../../services/ticket";
 import SeatDetail from "./components/seatDetail/SeatDetail";
 import SeatList from "./components/seatList/SeatList";
@@ -9,14 +11,24 @@ export default function Booking() {
   const [movieDetail, setMovieDetail] = useState({});
   const [seatList, setSeatList] = useState([]);
   const params = useParams();
+  const [loadingState, setLoadingState] = useContext(LoadingContext);
   useEffect(() => {
     getTicketDetail();
   }, []);
 
+  useEffect(() => {
+    setLoadingState({ isLoading: true });
+    if (movieDetail.danhSachGhe?.length) {
+      setLoadingState({ isLoading: false });
+    }
+  }, [movieDetail]);
+
   const getTicketDetail = async () => {
     const result = await fetchTicketDetailApi(params.showTimeId);
+
     setMovieDetail(result.data.content);
-    // console.log(result.data.content);
+
+    // console.log(movieDetail);
   };
 
   const handleSeatSelect = (seat) => {

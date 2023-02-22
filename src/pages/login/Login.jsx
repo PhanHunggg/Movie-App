@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { loginApi } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
-import Swal from "sweetalert2/dist/sweetalert2.js";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
-import "sweetalert2/src/sweetalert2.scss";
+import 'sweetalert2/src/sweetalert2.scss'
 
 export default function Login() {
   const Toast = Swal.mixin({
