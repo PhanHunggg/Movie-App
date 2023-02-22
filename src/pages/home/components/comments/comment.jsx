@@ -16,7 +16,7 @@ export default function Comment() {
     if (stateMovie.commentList.length) return;
     dispatch(fetchCommentListAction());
   };
-  console.log(stateMovie);
+  // console.log(stateMovie);
   const renderComment = () => {
     return stateMovie.commentList.map((ele, idx) => {
       return (

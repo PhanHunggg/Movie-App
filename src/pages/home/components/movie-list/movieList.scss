@@ -9,12 +9,12 @@
 
     .swiper-button-prev {
       margin-left: 20px;
-      color: 6B7280;
+      color: rgb(242, 107, 56);
     }
 
     .swiper-button-next {
       margin-right: 10px;
-      color: 9CA3AF;
+      color: rgb(242, 107, 56);
     }
   }
 
@@ -30,12 +30,50 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.288);
+      background: rgba(0, 0, 0, 0.600);
       opacity: 0;
       transition: all 0.5s;
     }
 
     &:hover::after {
+      opacity: 1;
+    }
+
+    .rate {
+      .rate-quality {
+        position: absolute;
+        background: #ff4c00;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 16px;
+        padding: 0 2px;
+        opacity: 0;
+        z-index: 1;
+        top: 81%;
+        margin-left: 5px;
+      }
+
+
+      .rate-point {
+        position: absolute;
+        opacity: 0;
+        z-index: 1;
+        color: white;
+        right: 10px;
+        top: 3%;
+        font-size: 18px;
+        i{
+          margin-right: 3px;
+          color: #e89105;
+        }
+      }
+    }
+
+    &:hover .rate-quality {
+      opacity: 1;
+    }
+
+    &:hover .rate-point {
       opacity: 1;
     }
 
@@ -77,30 +115,45 @@
     &:hover button {
       opacity: 1;
     }
-  }
 
-  h4 {
-    color: #43464b !important;
-    font-size: 16px;
-    text-transform: uppercase !important;
-    padding: 10px 0 15px;
-    font-family: "Merriweather", serif;
+    h4 {
+      position: absolute;
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      text-transform: uppercase !important;
+      padding: 10px 0 15px;
+      font-family: 'Open Sans', sans-serif;
+      opacity: 0;
+      z-index: 1;
+      top: 85%;
+      transition: all 0.5s;
+      margin-left: 5px;
+      overflow: hidden;
+      max-height: 35px;
+      max-width: 90%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &:hover h4 {
+      opacity: 1;
+    }
   }
 }
 
 .btn_xemThem {
+  justify-content: space-between !important;
+
   button {
     background-color: white;
     color: rgb(242, 107, 56);
     font-weight: 500;
-
-    border: 1px solid rgb(242, 107, 56);
+    border: none;
     transition: all 0.5s;
 
     &:hover {
-      background-color: rgb(242, 107, 56);
-      color: white;
-      border: 1px solid rgb(242, 107, 56);
+      color: #B91C1C;
+      background-color: none;
     }
   }
 }

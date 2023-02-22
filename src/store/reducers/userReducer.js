@@ -30,6 +30,7 @@ export const userReducer = (state = DEFAULT_STATE, action) => {
 
     case FETCH_BANNER_LIST:
       state.bannerList = payload;
+
       break;
     case FETCH_MOVIE_LIST:
       state.movieList = payload;

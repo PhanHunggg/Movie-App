@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useContext } from "react";
 import { axiosRequest } from "../../configs/axios.config";
 import { GROUP_ID } from "../../constants";
+import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import {
   FETCH_BANNER_LIST,
   FETCH_CHAIR_LIST,

@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Carousel } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBannerAction } from "../../../../store/actions/userActions";
+import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
 const contentStyle = {
   height: "600px",
   color: "#fff",
@@ -15,13 +16,23 @@ const contentStyle = {
 };
 
 export default function Banner() {
+  const [loadingState, setLoadingState] = useContext(LoadingContext);
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.userReducer);
   useEffect(() => {
     getBannerList();
   }, []);
+
+  useEffect(() => {
+    if (userState.bannerList.length) {
+      setLoadingState({ isLoading: false });
+    }
+  }, [userState]);
+
   const getBannerList = () => {
     if (userState.bannerList.length) return;
+
+    setLoadingState({ isLoading: true });
 
     dispatch(fetchBannerAction());
   };
