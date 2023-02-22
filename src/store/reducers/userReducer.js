@@ -1,4 +1,7 @@
+import { notification } from "antd";
+import { deleteMovieApi } from "../../services/movie";
 import {
+  DELETE_MOVIE,
   FETCH_BANNER_LIST,
   FETCH_CHAIR_LIST,
   FETCH_COMMENT_LIST,

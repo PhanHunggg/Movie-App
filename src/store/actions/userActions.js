@@ -2,6 +2,7 @@ import axios from "axios";
 import { axiosRequest } from "../../configs/axios.config";
 import { GROUP_ID } from "../../constants";
 import {
+  DELETE_MOVIE,
   FETCH_BANNER_LIST,
   FETCH_CHAIR_LIST,
   FETCH_COMMENT_LIST,
@@ -99,5 +100,12 @@ export const fetchChairListAction = (id) => {
       type: FETCH_CHAIR_LIST,
       payload: result,
     });
+  };
+};
+
+export const deleteMovieAction = (payload) => {
+  return {
+    type: DELETE_MOVIE,
+    payload,
   };
 };

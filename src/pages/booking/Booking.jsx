@@ -32,7 +32,7 @@ export default function Booking() {
     setSeatList(data);
   };
   return (
-    <div className="py-5">
+    <div style={{ padding: "165px 0 60px" }} className="booking">
       <div className="row">
         <SeatDetail />
         <SeatList
