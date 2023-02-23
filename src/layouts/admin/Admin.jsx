@@ -21,6 +21,7 @@ export default function Admin() {
       label,
     };
   }
+  const test = 1;
   const items = [
     getItem("Option 1", "1", <PieChartOutlined />),
     getItem("Option 2", "2", <DesktopOutlined />),

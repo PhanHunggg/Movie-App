@@ -38,3 +38,10 @@ export const deleteMovieApi = (id) => {
     method: "DELETE",
   });
 };
+
+export const fetchMovieDetailApi = (id) => {
+  return axiosRequest({
+    url: `/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`,
+    method: "GET",
+  });
+};

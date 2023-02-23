@@ -9,6 +9,7 @@ import Booking from "../pages/booking/Booking";
 
 import HomePage from "../pages/home/HomePage";
 import Login from "../pages/login/Login";
+import MovieShowtime from "../pages/login/movie-showtime/MovieShowtime";
 import MovieDetail from "../pages/movie-detail/MovieDetail";
 import MovieForm from "../pages/movie-form/MovieForm";
 import MovieListPage from "../pages/movie-list/MovieListPage";
@@ -75,6 +76,10 @@ export default function Router() {
             {
               path: "/admin/movie-management/edit/:id",
               element: <MovieForm />,
+            },
+            {
+              path: "/admin/movie-management/showtime/:id",
+              element: <MovieShowtime />,
             },
           ],
         },
