@@ -66,7 +66,6 @@ export default function MovieManagement() {
       title: "Mô tả",
       key: "3",
       dataIndex: "moTa",
-      align: "center",
        responsive: ['lg'],
     },
     {
