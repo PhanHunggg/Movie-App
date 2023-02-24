@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, notification, Table } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieListAction } from "../../store/actions/userActions";
 import { formatDate } from "../../utils";
 import { useNavigate } from "react-router-dom";
 import { deleteMovieApi, fetchMovieListApi } from "../../services/movie";

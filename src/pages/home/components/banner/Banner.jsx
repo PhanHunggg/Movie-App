@@ -3,6 +3,9 @@ import { Carousel } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBannerAction } from "../../../../store/actions/userActions";
 import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
+import { withViewport } from "../../../../HOCs/withViewport";
+import { MOBILE, TABLET } from "../../../../constants";
+import "./banner.scss";
 const contentStyle = {
   height: "600px",
   color: "#fff",
@@ -15,7 +18,7 @@ const contentStyle = {
   width: "100%",
 };
 
-export default function Banner() {
+function Banner({ device }) {
   const [loadingState, setLoadingState] = useContext(LoadingContext);
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.userReducer);
@@ -47,8 +50,15 @@ export default function Banner() {
     });
   };
   return (
-    <Carousel style={{ paddingTop: "116px" }} autoplay>
+    <Carousel
+      className={`banner ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      }`}
+      autoplay
+    >
       {renderBannerList()}
     </Carousel>
   );
 }
+
+export default withViewport(Banner);
