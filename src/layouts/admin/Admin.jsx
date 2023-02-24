@@ -1,41 +1,21 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import {
-  DesktopOutlined,
-  TeamOutlined,
-  FileOutlined,
+  UnorderedListOutlined,
+  UserAddOutlined,
   PieChartOutlined,
   UserOutlined,
+  ProfileOutlined,
+  MenuUnfoldOutlined,
 } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { useState } from "react";
 
 export default function Admin() {
+  const navigate = useNavigate();
   const { Header, Content, Footer, Sider } = Layout;
-  function getItem(label, key, icon, children) {
-    return {
-      key,
-      icon,
-      children,
-      label,
-    };
-  }
-  const test = 1;
-  const items = [
-    getItem("Option 1", "1", <PieChartOutlined />),
-    getItem("Option 2", "2", <DesktopOutlined />),
-    getItem("User", "sub1", <UserOutlined />, [
-      getItem("Tom", "3"),
-      getItem("Bill", "4"),
-      getItem("Alex", "5"),
-    ]),
-    getItem("Team", "sub2", <TeamOutlined />, [
-      getItem("Team 1", "6"),
-      getItem("Team 2", "8"),
-    ]),
-    getItem("Files", "9", <FileOutlined />),
-  ];
+
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -59,10 +39,46 @@ export default function Admin() {
           }}
         />
         <Menu
+          onClick={(items) => {
+            navigate(items.key);
+          }}
           theme="dark"
-          defaultSelectedKeys={["1"]}
+          // defaultSelectedKeys={["1"]}
           mode="inline"
-          items={items}
+          items={[
+            {
+              label: "Movie-Manager",
+              icon: <MenuUnfoldOutlined />,
+              children: [
+                {
+                  label: "Movie-List",
+                  icon: <ProfileOutlined />,
+                  key: "/admin/movie-management",
+                },
+                {
+                  label: "Add-Movie",
+                  icon: <PieChartOutlined />,
+                  key: "/admin/movie-management/add-movie",
+                },
+              ],
+            },
+            {
+              label: "User-Manager",
+              icon: <UserOutlined />,
+              children: [
+                {
+                  label: "User-List",
+                  icon: <UnorderedListOutlined />,
+                  key: "/admin/user-management",
+                },
+                {
+                  label: "Add-User",
+                  icon: <UserAddOutlined />,
+                  key: "/admin/user-management/add-user",
+                },
+              ],
+            },
+          ]}
         />
       </Sider>
       <Layout className="site-layout">

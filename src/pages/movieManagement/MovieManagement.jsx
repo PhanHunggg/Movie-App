@@ -9,7 +9,6 @@ import { LoadingContext } from "../../contexts/loading/LoadingContext";
 
 export default function MovieManagement() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [movieList, setMovieList] = useState([]);
   const [_, setLoadingState] = useContext(LoadingContext);
 
@@ -53,26 +52,38 @@ export default function MovieManagement() {
       title: "Tên Phim",
       key: "1",
       dataIndex: "tenPhim",
+      align: "center",
+      responsive: ['sm'],
     },
     {
       title: "Ngày Khởi Chiếu",
       key: "2",
       dataIndex: "ngayKhoiChieu",
+      align: "center",
+       responsive: ['lg'],
+
       render: (text) => formatDate(text),
     },
     {
       title: "Mô tả",
       key: "3",
       dataIndex: "moTa",
+      align: "center",
+       responsive: ['lg'],
     },
     {
       title: "Đánh Giá",
       key: "4",
       dataIndex: "danhGia",
+      align: "center",
+       responsive: ['lg'],
     },
     {
       title: "Hành Động",
       key: "5",
+      align: "center",
+       responsive: ['sm'],
+
       render: (text) => {
         return (
           <div style={{ display: "flex" }} key={text.maPhim}>
