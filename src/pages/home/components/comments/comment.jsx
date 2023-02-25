@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
 import { fetchCommentListAction } from "../../../../store/actions/userActions";
 import "./comment.scss";
 
 export default function Comment() {
   const dispatch = useDispatch();
+
+  const [loadingState, setLoadingState] = useContext(LoadingContext);
 
   const stateMovie = useSelector((state) => state.userReducer);
 
@@ -12,11 +15,20 @@ export default function Comment() {
     getCommentList();
   }, []);
 
+  useEffect(() => {
+    if (stateMovie.movieList.length) {
+      setLoadingState({ isLoading: false });
+    }
+  }, [stateMovie]);
+
   const getCommentList = () => {
     if (stateMovie.commentList.length) return;
+
+    setLoadingState({ isLoading: true });
+
     dispatch(fetchCommentListAction());
   };
-  // console.log(stateMovie);
+
   const renderComment = () => {
     return stateMovie.commentList.map((ele, idx) => {
       return (
@@ -43,7 +55,7 @@ export default function Comment() {
   };
 
   return (
-    <div style={{paddingBottom: "50px"}} className="container">
+    <div style={{ paddingBottom: "50px" }} className="container">
       <h3>Bình Luận Phim</h3>
       <div className="row">{renderComment()}</div>
     </div>

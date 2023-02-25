@@ -6,5 +6,12 @@ export const loginApi = (user) => {
     method: "POST",
     data: user,
   });
+};
 
+export const registerAPI = (user) => {
+  return axiosRequest({
+    url: "/QuanLyNguoiDung/DangKy",
+    method: "POST",
+    data: user,
+  });
 };

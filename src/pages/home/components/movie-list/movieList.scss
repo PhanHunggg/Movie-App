@@ -41,6 +41,7 @@
 
     .rate {
       .rate-quality {
+        transition: all 0.5s;
         position: absolute;
         background: #ff4c00;
         border-radius: 2px;
@@ -55,6 +56,7 @@
 
 
       .rate-point {
+        transition: all 0.5s;
         position: absolute;
         opacity: 0;
         z-index: 1;
@@ -62,7 +64,8 @@
         right: 10px;
         top: 3%;
         font-size: 18px;
-        i{
+
+        i {
           margin-right: 3px;
           color: #e89105;
         }

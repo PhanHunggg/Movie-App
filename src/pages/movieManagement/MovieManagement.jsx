@@ -13,8 +13,7 @@ export default function MovieManagement() {
   useEffect(() => {
     getMovieList();
   }, []);
-const [movie, setMovie] = useState();
-
+  const [movie, setMovie] = useState();
 
   const getMovieList = () => {
     dispatch(fetchMovieListAction());

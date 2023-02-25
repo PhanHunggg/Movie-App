@@ -13,6 +13,10 @@ export default function Header() {
     navigate("/login");
   };
 
+  const navigateRegister = () => {
+    navigate("/register");
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("USER_INFO_KEY");
     dispatch(setUserAction(null));
@@ -85,7 +89,7 @@ export default function Header() {
                 className="btn btn-danger"
                 type="logout"
               >
-                Logout
+                ĐĂNG XUẤT
               </button>
             </>
           ) : (
@@ -93,14 +97,15 @@ export default function Header() {
               <button
                 className="btn btn-outline-info my-2 my-sm-0 mr-2"
                 type="sumit"
+                onClick={navigateRegister}
               >
-                Register
+                ĐĂNG KÝ
               </button>
               <button
                 onClick={navigateLogin}
                 className="btn btn-outline-success my-2 my-sm-0"
               >
-                Login
+                ĐĂNG NHẬP
               </button>
             </>
           )}

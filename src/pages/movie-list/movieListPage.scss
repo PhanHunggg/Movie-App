@@ -1,0 +1,38 @@
+.list-page {
+    .filter-moviePage {
+        .nav-link.active {
+            border: none;
+            color: white;
+            background-color: rgb(242, 107, 56);
+            transition: all .2s;
+
+            &:hover {
+                background-color: rgb(242, 107, 56);
+                // color: white;
+            }
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+
+        .nav-link {
+            border: none;
+            color: black;
+            background-color: white;
+            transition: all .2s;
+            font-weight: bold;
+
+            &:hover {
+                background-color: rgb(242, 107, 56);
+                color: white;
+            }
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+    }
+}

@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import { fetchMovieListAction } from "../../store/actions/userActions";
+import "./movieListPage.scss";
 
 export default function MovieListPage() {
-  // const [loadingState, setLoadingState] = useContext(LoadingContext);
+  const [loadingState, setLoadingState] = useContext(LoadingContext);
 
   const navigate = useNavigate();
 
@@ -21,19 +22,33 @@ export default function MovieListPage() {
   }, []);
 
   useEffect(() => {
-
-  }, [])
+    if (stateMovie.movieList.length) {
+      setLoadingState({ isLoading: false });
+    }
+  }, [stateMovie]);
 
   const getMovieList = () => {
     if (stateMovie.movieList.length) return;
-    // setLoadingState({ isLoading: true });
+
+    setLoadingState({ isLoading: true });
+
     dispatch(fetchMovieListAction());
-    // setLoadingState({ isLoading: false });
   };
 
-  const renderMovieList = () => {
-    return stateMovie.movieList.map((ele) => {
-      console.log(ele);
+  const renderNow = () => {
+    return stateMovie.movieList?.filter((ele) => {
+      return ele.dangChieu === true;
+    });
+  };
+
+  const renderSoon = () => {
+    return stateMovie.movieList?.filter((ele) => {
+      return ele.sapChieu == true;
+    });
+  };
+
+  const renderMovieList = (filterMovie) => {
+    return filterMovie.map((ele) => {
       return (
         <div key={ele.maPhim} className="col-4">
           <div className="card mb-4">
@@ -57,8 +72,60 @@ export default function MovieListPage() {
     });
   };
   return (
-    <div style={{ paddingTop: "170px" }} className="container ">
-      <div className="row movie">{renderMovieList()}</div>
+    <div style={{ paddingTop: "170px" }} className="container list-page">
+      <div className="filter-moviePage">
+        <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link active mr-3"
+              id="pills-home-tab"
+              data-toggle="pill"
+              data-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              ĐANG CHIẾU
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="pills-profile-tab"
+              data-toggle="pill"
+              data-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+              SẮP CHIẾU
+            </button>
+          </li>
+        </ul>
+
+        <div className="tab-content" id="pills-tabContent">
+          <div
+            className="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+          >
+            <div className="row movie py-3">{renderMovieList(renderNow())}</div>
+          </div>
+          <div
+            className="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+          >
+            <div className="row movie py-3">
+              {renderMovieList(renderSoon())}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

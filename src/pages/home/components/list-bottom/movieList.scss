@@ -1,0 +1,91 @@
+.movie {
+  .swiper {
+    display: inline-block;
+    width: 100%;
+
+    .swiper-wrapper {
+      margin-left: 25px;
+
+      .swiper-slide {
+
+        .card {
+          width: 340px;
+          height: 463px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.600);
+            opacity: 0;
+            transition: all 0.5s;
+          }
+
+          &:hover::after {
+            opacity: 1;
+          }
+        }
+
+        h4 {
+          position: absolute;
+          color: rgb(255, 255, 255);
+          font-size: 20px;
+          text-transform: uppercase !important;
+          padding: 10px 0 15px;
+          font-family: 'Open Sans', sans-serif;
+          opacity: 0;
+          z-index: 1;
+          top: 85%;
+          transition: all 0.5s;
+          margin-left: 5px;
+          overflow: hidden;
+          max-height: 35px;
+          max-width: 90%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        &:hover h4 {
+          opacity: 1;
+        }
+
+        // h4{
+        //   font-size: 20px;
+        // }
+      }
+    }
+
+    .swiper-button-prev {
+      margin-left: 20px;
+      color: rgb(242, 107, 56);
+    }
+
+    .swiper-button-next {
+      margin-right: 10px;
+      color: rgb(242, 107, 56);
+    }
+  }
+
+
+
+}
+
+.btn_xemThem {
+  justify-content: space-between !important;
+
+  button {
+    background-color: white;
+    color: rgb(242, 107, 56);
+    font-weight: 500;
+    border: none;
+    transition: all 0.5s;
+
+    &:hover {
+      color: #B91C1C;
+      background-color: none;
+    }
+  }
+}

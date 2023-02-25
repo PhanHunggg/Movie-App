@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginApi } from "../../services/user";
+import { loginApi, registerAPI } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
-import 'sweetalert2/src/sweetalert2.scss'
+import "sweetalert2/src/sweetalert2.scss";
 
 export default function Login() {
   const Toast = Swal.mixin({
@@ -23,7 +23,12 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  const navigateRegister = () => {
+    navigate("/register");
+  };
+
   const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     taiKhoan: "",
     matKhau: "",
@@ -101,16 +106,17 @@ export default function Login() {
                     type="submit"
                     className="btn btn-primary"
                   >
-                    Submit
+                    ĐĂNG NHẬP
                   </button>
                   <hr />
 
                   <button
                     style={{ paddingTop: "10px", width: "100%" }}
                     type="submit"
-                    className="btn btn-success mt-3"
+                    className="btn btn-success mt-1"
+                    onClick={navigateRegister}
                   >
-                    Register
+                    ĐĂNG KÝ
                   </button>
                 </div>
               </form>

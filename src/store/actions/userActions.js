@@ -52,7 +52,7 @@ export const fetchMovieListAction = () => {
 export const fetchCommentListAction = () => {
   return async (dispatch) => {
     const result = await axiosRequest({
-      url: "/QuanLyPhim/LayDanhSachPhim?maNhom=GP05",
+      url: `/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUP_ID}`,
       method: "GET",
     });
 

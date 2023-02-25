@@ -15,9 +15,9 @@ import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
 
 // install Virtual module
 SwiperCore.use([Virtual, Navigation, Pagination, Autoplay]);
-
-export default function MovieList() {
+export default function MovieListBottom() {
   const stateMovie = useSelector((state) => state.userReducer);
+  //   console.log(stateMovie);
 
   const [loadingState, setLoadingState] = useContext(LoadingContext);
 
@@ -31,8 +31,8 @@ export default function MovieList() {
 
   const navigate = useNavigate();
 
-  const navigateMovieListHot = () => {
-    navigate("/movie-list-hot");
+  const navigateMovieList = () => {
+    navigate("/movie-list");
   };
 
   const navigateMovieDetail = (id) => {
@@ -52,10 +52,7 @@ export default function MovieList() {
   };
 
   const renderMovieList = () => {
-    const filterMovieList = stateMovie.movieList?.filter((ele) => {
-      return ele.hot === true;
-    });
-    return filterMovieList.map((ele, idx) => {
+    return stateMovie.movieList.map((ele, idx) => {
       return (
         <React.Fragment key={ele.maPhim}>
           <SwiperSlide key={ele.maPhim}>
@@ -74,10 +71,10 @@ export default function MovieList() {
     });
   };
   return (
-    <div className="container py-5 mt-4">
+    <div className="container mt-4 pb-5">
       <div className="text-right btn_xemThem d-flex mb-3">
-        <h2 className="ml-2">HOT</h2>
-        <button onClick={navigateMovieListHot} className="btn">
+        <h2 className="ml-2">PHIM HAY</h2>
+        <button onClick={navigateMovieList} className="btn">
           XEM THÊM
           <i className="fa fa-angle-right ml-2"></i>
         </button>

@@ -11,8 +11,10 @@ import HomePage from "../pages/home/HomePage";
 import Login from "../pages/login/Login";
 import MovieDetail from "../pages/movie-detail/MovieDetail";
 import MovieForm from "../pages/movie-form/MovieForm";
+import MovieListHotPage from "../pages/movie-list/MovieListHotPage";
 import MovieListPage from "../pages/movie-list/MovieListPage";
 import MovieManagement from "../pages/movieManagement/MovieManagement";
+import Register from "../pages/register/Register";
 
 export default function Router() {
   const routing = useRoutes([
@@ -34,6 +36,10 @@ export default function Router() {
             },
           ],
         },
+        {
+          path: "/register",
+          element: <Register />,
+        },
 
         {
           path: "/",
@@ -49,6 +55,10 @@ export default function Router() {
         {
           path: "/movie-list",
           element: <MovieListPage />,
+        },
+        {
+          path: "/movie-list-hot",
+          element: <MovieListHotPage />,
         },
         {
           path: "/movie-detail/:id",
