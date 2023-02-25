@@ -55,9 +55,11 @@ export default function Comment() {
   };
 
   return (
-    <div style={{ paddingBottom: "50px" }} className="container">
-      <h3>Bình Luận Phim</h3>
-      <div className="row">{renderComment()}</div>
+    <div style={{backgroundColor: "#232946"}}  className="comment py-4">
+      <div style={{ paddingBottom: "50px" }} className="container">
+        <h3>Bình Luận Phim</h3>
+        <div className="row">{renderComment()}</div>
+      </div>
     </div>
   );
 }

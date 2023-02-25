@@ -14,14 +14,10 @@ import {
 } from "antd";
 import { useState } from "react";
 import { useForm } from "antd/es/form/Form";
-import {
-  addUserApi,
-  fetchTypeUserApi,
-  fetchUserInformationApi,
-  updateUserApi,
-} from "../../../services/user";
-import { GROUP_ID } from "../../../constants";
+
 import { useNavigate, useParams } from "react-router-dom";
+import { GROUP_ID } from "../../constants";
+import { addUserApi, fetchTypeUserApi, fetchUserInformationApi, updateUserApi } from "../../services/user";
 
 export default function UserForm() {
   const params = useParams();

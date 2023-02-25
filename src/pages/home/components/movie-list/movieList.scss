@@ -1,6 +1,9 @@
 .review {
   .btn_xemThem {
     justify-content: space-between !important;
+    h2{
+      color: #fffffe;
+    }
 
     button {
       background-color: white;
@@ -10,8 +13,8 @@
       transition: all 0.5s;
 
       &:hover {
-        color: #b91c1c;
-        background-color: none;
+        color: #fffffe;
+        background-color: rgb(242, 107, 56);
       }
     }
   }

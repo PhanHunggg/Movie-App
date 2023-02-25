@@ -2,7 +2,7 @@
   position: fixed !important;
   width: 100%;
   z-index: 5;
-  background-color: rgb(253, 252, 240);
+  background-color: #b8c1ec;
   a {
     p {
       margin: 0;
@@ -16,6 +16,8 @@
     border: 1px solid #ced0da;
     padding-right: 8px;
     border-radius: 6px;
+    background-color: white;
+
     input {
       border: none;
       font-size: 14px;
@@ -26,8 +28,9 @@
       width: 250px;
     }
     button {
-      background-color: white;
       border: none;
+      background-color: white;
+
     }
   }
 

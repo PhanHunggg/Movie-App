@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fetchMovieListAction } from "../../../../store/actions/userActions";
 import "./movieList.scss";
 import SwiperCore, { Virtual, Navigation, Pagination, Autoplay } from "swiper";
@@ -74,31 +74,33 @@ function MovieListBottom({ device }) {
     });
   };
   return (
-    <div
-      className={`container py-5 mt-4 review ${device === TABLET && "tablet"} ${
-        device === MOBILE && "mobile"
-      }`}
-    >
-      <div className="text-right btn_xemThem d-flex mb-3">
-        <h2 className="ml-2">PHIM HAY</h2>
-        <button onClick={navigateMovieList} className="btn">
-          XEM THÊM
-          <i className="fa fa-angle-right ml-2"></i>
-        </button>
-      </div>
-      <div className="row movie">
-        <Swiper
-          watchSlidesProgress={true}
-          slidesPerView={3}
-          className="mySwiper"
-          navigation={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-        >
-          {renderMovieList()}
-        </Swiper>
+    <div style={{backgroundColor: "#232946"}}  className="movie_bottom py-4">
+      <div
+        className={`container py-5  review ${
+          device === TABLET && "tablet"
+        } ${device === MOBILE && "mobile"}`}
+      >
+        <div className="text-right btn_xemThem d-flex mb-3">
+          <h2 className="ml-2">PHIM HAY</h2>
+          <button onClick={navigateMovieList} className="btn">
+            XEM THÊM
+            <i className="fa fa-angle-right ml-2"></i>
+          </button>
+        </div>
+        <div className="row movie">
+          <Swiper
+            watchSlidesProgress={true}
+            slidesPerView={3}
+            className="mySwiper"
+            navigation={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+          >
+            {renderMovieList()}
+          </Swiper>
+        </div>
       </div>
     </div>
   );

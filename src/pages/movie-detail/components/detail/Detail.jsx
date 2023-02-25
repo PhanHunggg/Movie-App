@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Modal from "../../../../components/modal/Modal";
+import { MOBILE, TABLET } from "../../../../constants";
+import { withViewport } from "../../../../HOCs/withViewport";
 import { fetchMovieDetailAction } from "../../../../store/actions/userActions";
+import { formatDate } from "../../../../utils";
+import "./detail.scss";
 
-export default function Detail() {
+function Detail({ device }) {
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -16,53 +21,12 @@ export default function Detail() {
   const getMovieDetail = () => {
     dispatch(fetchMovieDetailAction(params.id));
   };
-
-  const modal__trailer = () => {
-    console.log("run");
-    return (
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <div className="top pb-5">
+    <div
+      className={`top  movie ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      }`}
+    >
       <div className="row">
         <div className="col-4">
           <div className="imgBox">
@@ -70,14 +34,16 @@ export default function Detail() {
               src={movieState?.movieDetail?.hinhAnh}
               alt={movieState?.movieDetail?.tenPhim}
             />
-            <div className="btn_trailer">
-              <a className="btn btn_play" onClick={modal__trailer}>
+
+            <div className="overlay"></div>
+            <div className="trailer">
+              <button data-toggle="modal" data-target="#exampleModal">
                 <i className="fa-solid fa-play"></i>
-              </a>
+              </button>
             </div>
           </div>
         </div>
-        <div className="col-8">
+        <div className="col-8 detail ">
           <h2>{movieState?.movieDetail?.tenPhim}</h2>
           <p className="rate">
             <i className="fa-solid fa-star"></i>
@@ -88,10 +54,13 @@ export default function Detail() {
           </p>
           <p>
             Ngày khởi chiếu:{" "}
-            <span>{movieState?.movieDetail?.ngayKhoiChieu}</span>
+            <span>{formatDate(movieState?.movieDetail?.ngayKhoiChieu)}</span>
           </p>
         </div>
       </div>
+      <Modal />
     </div>
   );
 }
+
+export default withViewport(Detail);

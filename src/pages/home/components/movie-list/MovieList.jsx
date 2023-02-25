@@ -76,31 +76,33 @@ function MovieList({ device }) {
     });
   };
   return (
-    <div
-      className={`container py-5 mt-4 review ${device === TABLET && "tablet"} ${
-        device === MOBILE && "mobile"
-      }`}
-    >
-      <div className="text-right btn_xemThem d-flex mb-3">
-        <h2 className="ml-2">HOT</h2>
-        <button onClick={navigateMovieListHot} className="btn">
-          XEM THÊM
-          <i className="fa fa-angle-right ml-2"></i>
-        </button>
-      </div>
-      <div className="row movie">
-        <Swiper
-          watchSlidesProgress={true}
-          slidesPerView={3}
-          className="mySwiper"
-          navigation={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-        >
-          {renderMovieList()}
-        </Swiper>
+    <div style={{backgroundColor: "#232946"}} className="movie_list py-4">
+      <div
+        className={`container py-5 review ${
+          device === TABLET && "tablet"
+        } ${device === MOBILE && "mobile"}`}
+      >
+        <div className="text-right btn_xemThem d-flex mb-3">
+          <h2 style={{color: "fffffe"}} className="ml-2">HOT</h2>
+          <button onClick={navigateMovieListHot} className="btn">
+            XEM THÊM
+            <i className="fa fa-angle-right ml-2"></i>
+          </button>
+        </div>
+        <div className="row movie">
+          <Swiper
+            watchSlidesProgress={true}
+            slidesPerView={3}
+            className="mySwiper"
+            navigation={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+          >
+            {renderMovieList()}
+          </Swiper>
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ import Home from "../layouts/home/Home";
 import Booking from "../pages/booking/Booking";
 
 import HomePage from "../pages/home/HomePage";
-import UserForm from "../pages/home/user-form/UserForm";
 import Login from "../pages/login/Login";
 import MovieShowtime from "../pages/login/movie-showtime/MovieShowtime";
 import MovieDetail from "../pages/movie-detail/MovieDetail";
@@ -17,6 +16,7 @@ import MovieListHotPage from "../pages/movie-list/MovieListHotPage";
 import MovieListPage from "../pages/movie-list/MovieListPage";
 import MovieManagement from "../pages/movieManagement/MovieManagement";
 import Register from "../pages/register/Register";
+import UserForm from "../pages/user-form/UserForm";
 import UserManagement from "../pages/user-management/UserManagement";
 
 export default function Router() {
