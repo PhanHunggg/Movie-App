@@ -35,35 +35,51 @@ function Header({ device }) {
         <img src="./images/logoCinema.png" alt="logoCinema" />
         <p className="font-weight-bold">Cybersoft Cinema</p>
       </NavLink>
-      <div className="d-flex search ">
-        <input
-          type="text"
-          className="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default"
-          placeholder="Tìm kiếm phim..."
-        ></input>
-        <button className="btn-focus">
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+      {device === MOBILE ? (
+        ""
+      ) : (
+        <div className="d-flex search ml-2">
+          <input
+            type="text"
+            className="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="Tìm kiếm phim..."
+          ></input>
+          <button className="btn-focus">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      )}
 
-      <div
-        className="collapse navbar-collapse user"
-        id="collapsibleNavId"
-      >
-        <div className=" user ml-auto">
+      <div className="collapse navbar-collapse user" id="collapsibleNavId">
+        <div className=" action ml-2">
           {userState?.userInfo ? (
             <>
               <i className="fa-solid fa-user"></i>
               <span className="mr-3">{userState.userInfo.hoTen}</span>
-              <button
-                onClick={handleLogout}
-                className="btn btn-danger"
-                type="logout"
-              >
-                ĐĂNG XUẤT
-              </button>
+              <div className="btn-action text-center">
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-danger"
+                  type="logout"
+                >
+                  ĐĂNG XUẤT
+                </button>
+                <br />
+                {userState?.userInfo?.maLoaiNguoiDung === "QuanTri" && (
+                 
+                  <button
+                    onClick={() => {
+                      navigate("/admin/movie-management");
+                    }}
+                    className="btn btn-success btn-admin"
+                    type="logout"
+                  >
+                    Admin
+                  </button>
+                )}
+              </div>
             </>
           ) : (
             <>

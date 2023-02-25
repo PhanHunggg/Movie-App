@@ -12,11 +12,13 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
+import { withViewport } from "../../../../HOCs/withViewport";
+import { MOBILE, TABLET } from "../../../../constants";
 
 // install Virtual module
 SwiperCore.use([Virtual, Navigation, Pagination, Autoplay]);
 
-export default function MovieList() {
+function MovieList({ device }) {
   const stateMovie = useSelector((state) => state.userReducer);
 
   const [loadingState, setLoadingState] = useContext(LoadingContext);
@@ -74,7 +76,11 @@ export default function MovieList() {
     });
   };
   return (
-    <div className="container py-5 mt-4">
+    <div
+      className={`container py-5 mt-4 review ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      }`}
+    >
       <div className="text-right btn_xemThem d-flex mb-3">
         <h2 className="ml-2">HOT</h2>
         <button onClick={navigateMovieListHot} className="btn">
@@ -99,3 +105,5 @@ export default function MovieList() {
     </div>
   );
 }
+
+export default withViewport(MovieList);

@@ -13,15 +13,11 @@ export default function MovieManagement() {
   useEffect(() => {
     getMovieList();
   }, []);
-<<<<<<< HEAD
-  const [movie, setMovie] = useState();
-=======
 
   useEffect(() => {
     setLoadingState({ isLoading: true });
     if (movieList?.length) setLoadingState({ isLoading: false });
   }, [movieList]);
->>>>>>> 77a2cd18a83dbf9c228aea3556c788de54cce556
 
   const getMovieList = async () => {
     const result = await fetchMovieListApi();
@@ -35,15 +31,16 @@ export default function MovieManagement() {
       const data = [...movieList];
       const idx = data.findIndex((ele) => ele.maPhim === movie.maPhim);
       if (idx === -1) return;
+      await deleteMovieApi(movie.maPhim);
+
       data.splice(idx, 1);
       setMovieList(data);
-      await deleteMovieApi(movie.maPhim);
       notification.success({
         message: "Xóa phim thành công",
       });
     } catch (error) {
       console.log(error);
-      notification.success({
+      notification.error({
         message: error.response.data.content,
       });
     }
@@ -55,14 +52,14 @@ export default function MovieManagement() {
       key: "1",
       dataIndex: "tenPhim",
       align: "center",
-      responsive: ['sm'],
+      responsive: ["sm"],
     },
     {
       title: "Ngày Khởi Chiếu",
       key: "2",
       dataIndex: "ngayKhoiChieu",
       align: "center",
-       responsive: ['lg'],
+      responsive: ["lg"],
 
       render: (text) => formatDate(text),
     },
@@ -70,20 +67,20 @@ export default function MovieManagement() {
       title: "Mô tả",
       key: "3",
       dataIndex: "moTa",
-       responsive: ['lg'],
+      responsive: ["lg"],
     },
     {
       title: "Đánh Giá",
       key: "4",
       dataIndex: "danhGia",
       align: "center",
-       responsive: ['lg'],
+      responsive: ["lg"],
     },
     {
       title: "Hành Động",
       key: "5",
       align: "center",
-       responsive: ['sm'],
+      responsive: ["sm"],
 
       render: (text) => {
         return (

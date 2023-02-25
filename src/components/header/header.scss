@@ -47,31 +47,28 @@
     .fa-solid {
       margin-right: 5px;
     }
-    span {
-      font-weight: 500;
-      font-size: 18px;
+    .action {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      span {
+        font-weight: 500;
+        font-size: 18px;
+      }
+      button {
+        font-weight: 500;
+      }
+      .btn-admin {
+        margin-top: 5px;
+        width: 116px;
+      }
     }
   }
 }
 
 .header.tablet {
   a {
-    img {
-      width: 60px;
-    }
-    p {
-      font-size: 20px;
-    }
-  }
-  .search {
-    input {
-      width: 205px;
-    }
-  }
-}
-
-.header.mobile {
-  a {
+    margin: 0;
     img {
       width: 55px;
     }
@@ -81,18 +78,62 @@
   }
   .search {
     input {
+      width: 175px;
+    }
+  }
+  .user {
+    .action {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      span {
+        font-size: 16px;
+        margin-right: 0 !important ;
+        width: 150px;
+      }
+      button {
+        width: 106px;
+        height: 35px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .btn-admin {
+        margin-top: 5px;
+        margin-left: 0;
+        width: 108px;
+      }
+    }
+  }
+}
+
+.header.mobile {
+  a {
+    margin-right: 0 !important;
+    img {
+      width: 55px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  .search {
+    input {
       width: 150px;
     }
   }
   .user {
-    margin-left: 15px;
-    span {
-      font-size: 16px;
-    }
-    button {
-      width: 77px;
-      height: 35px;
-      line-height: 21px;
+    .action {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      span {
+        font-size: 15px;
+      }
+      button {
+        width: 106px;
+        font-size: 14px;
+        height: 33px;
+      }
     }
   }
 }
