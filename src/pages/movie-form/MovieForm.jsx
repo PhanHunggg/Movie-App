@@ -13,7 +13,7 @@ import {
   TreeSelect,
 } from "antd";
 import { useForm } from "antd/es/form/Form";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { GROUP_ID } from "../../constants";
@@ -23,6 +23,7 @@ import {
   fetchMovieDetailApiServices,
 } from "../../services/movie";
 import moment from "moment";
+import { LoadingContext } from "../../contexts/loading/LoadingContext";
 
 export default function MovieForm() {
   const navigate = useNavigate();
@@ -75,17 +76,34 @@ export default function MovieForm() {
     file && formData.append("File", file, file.name);
 
     if (params.id) {
-      formData.append("maPhim", params.id);
+      try {
+        formData.append("maPhim", params.id);
 
-      await editMovieApi(formData);
+        await editMovieApi(formData);
+
+        notification.success({
+          message: "Cập nhật phim thành công ",
+        });
+        navigate("/admin/movie-management");
+      } catch (error) {
+        notification.error({
+          message: error.response.data.content,
+        });
+      }
     } else {
-      await addMovieApi(formData);
-    }
+      try {
+        await addMovieApi(formData);
 
-    notification.success({
-      message: params.id ? "Cập nhật phim thành công " : "Thêm phim thành công",
-    });
-    navigate("/admin/movie-management");
+        notification.success({
+          message: "Thêm phim thành công",
+        });
+        navigate("/admin/movie-management");
+      } catch (error) {
+        notification.error({
+          message: error.response.data.content,
+        });
+      }
+    }
   };
   const handleFile = (event) => {
     setFile(event.target.files[0]);

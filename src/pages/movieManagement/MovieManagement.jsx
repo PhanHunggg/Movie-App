@@ -1,22 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, notification, Table } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieListAction } from "../../store/actions/userActions";
 import { formatDate } from "../../utils";
 import { useNavigate } from "react-router-dom";
-import { deleteMovieApi } from "../../services/movie";
+import { deleteMovieApi, fetchMovieListApi } from "../../services/movie";
+import { LoadingContext } from "../../contexts/loading/LoadingContext";
 
 export default function MovieManagement() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const movieList = useSelector((state) => state.userReducer.movieList);
+  const [movieList, setMovieList] = useState([]);
+  const [_, setLoadingState] = useContext(LoadingContext);
+
   useEffect(() => {
     getMovieList();
   }, []);
+<<<<<<< HEAD
   const [movie, setMovie] = useState();
+=======
 
-  const getMovieList = () => {
-    dispatch(fetchMovieListAction());
+  useEffect(() => {
+    setLoadingState({ isLoading: true });
+    if (movieList?.length) setLoadingState({ isLoading: false });
+  }, [movieList]);
+>>>>>>> 77a2cd18a83dbf9c228aea3556c788de54cce556
+
+  const getMovieList = async () => {
+    const result = await fetchMovieListApi();
+    console.log(result);
+
+    setMovieList(result.data.content);
+  };
+
+  const handleDeleteMovie = async (movie) => {
+    try {
+      const data = [...movieList];
+      const idx = data.findIndex((ele) => ele.maPhim === movie.maPhim);
+      if (idx === -1) return;
+      data.splice(idx, 1);
+      setMovieList(data);
+      await deleteMovieApi(movie.maPhim);
+      notification.success({
+        message: "Xóa phim thành công",
+      });
+    } catch (error) {
+      console.log(error);
+      notification.success({
+        message: error.response.data.content,
+      });
+    }
   };
 
   const columns = [
@@ -24,29 +54,40 @@ export default function MovieManagement() {
       title: "Tên Phim",
       key: "1",
       dataIndex: "tenPhim",
+      align: "center",
+      responsive: ['sm'],
     },
     {
       title: "Ngày Khởi Chiếu",
       key: "2",
       dataIndex: "ngayKhoiChieu",
+      align: "center",
+       responsive: ['lg'],
+
       render: (text) => formatDate(text),
     },
     {
       title: "Mô tả",
       key: "3",
       dataIndex: "moTa",
+       responsive: ['lg'],
     },
     {
       title: "Đánh Giá",
       key: "4",
       dataIndex: "danhGia",
+      align: "center",
+       responsive: ['lg'],
     },
     {
       title: "Hành Động",
       key: "5",
+      align: "center",
+       responsive: ['sm'],
+
       render: (text) => {
         return (
-          <div key={text.maPhim}>
+          <div style={{ display: "flex" }} key={text.maPhim}>
             <Button
               className="mb-1"
               style={{ backgroundColor: "green" }}
@@ -55,25 +96,23 @@ export default function MovieManagement() {
                 navigate(`/admin/movie-management/edit/${text.maPhim}`);
               }}
             >
-              EDIT
+              <i className="fa-solid fa-pen-to-square"></i>
             </Button>
             <Button
-              onClick={async () => {
-                try {
-                  await deleteMovieApi(text.maPhim);
-
-                  notification.success({
-                    message: "Xóa phim thành công",
-                  });
-                } catch (error) {
-                  console.log(error);
-                  notification.error({
-                    message: error.response.data.content,
-                  });
-                }
-              }}
+              style={{ margin: "0 5px" }}
+              type="primary"
+              danger
+              onClick={() => handleDeleteMovie(text)}
             >
-              DELETE
+              <i className="fa-solid fa-xmark"></i>
+            </Button>
+            <Button
+              onClick={() => {
+                navigate(`/admin/movie-management/showtime/${text.maPhim}`);
+              }}
+              type="primary"
+            >
+              <i className="fa-solid fa-calendar-days"></i>
             </Button>
           </div>
         );

@@ -8,13 +8,19 @@ import Home from "../layouts/home/Home";
 import Booking from "../pages/booking/Booking";
 
 import HomePage from "../pages/home/HomePage";
+import UserForm from "../pages/home/user-form/UserForm";
 import Login from "../pages/login/Login";
+import MovieShowtime from "../pages/login/movie-showtime/MovieShowtime";
 import MovieDetail from "../pages/movie-detail/MovieDetail";
 import MovieForm from "../pages/movie-form/MovieForm";
 import MovieListHotPage from "../pages/movie-list/MovieListHotPage";
 import MovieListPage from "../pages/movie-list/MovieListPage";
 import MovieManagement from "../pages/movieManagement/MovieManagement";
+<<<<<<< HEAD
 import Register from "../pages/register/Register";
+=======
+import UserManagement from "../pages/user-management/UserManagement";
+>>>>>>> 77a2cd18a83dbf9c228aea3556c788de54cce556
 
 export default function Router() {
   const routing = useRoutes([
@@ -85,6 +91,22 @@ export default function Router() {
             {
               path: "/admin/movie-management/edit/:id",
               element: <MovieForm />,
+            },
+            {
+              path: "/admin/movie-management/showtime/:id",
+              element: <MovieShowtime />,
+            },
+            {
+              path: "/admin/user-management",
+              element: <UserManagement />,
+            },
+            {
+              path: "/admin/user-management/add-user",
+              element: <UserForm />,
+            },
+            {
+              path: "/admin/user-management/edit-user/:user",
+              element: <UserForm />,
             },
           ],
         },
