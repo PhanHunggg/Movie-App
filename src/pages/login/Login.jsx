@@ -5,10 +5,13 @@ import { loginApi, registerAPI } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import "./login.scss";
 
 import "sweetalert2/src/sweetalert2.scss";
+import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
+import { withViewport } from "../../HOCs/withViewport";
 
-export default function Login() {
+function Login(device) {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -73,10 +76,12 @@ export default function Login() {
     <>
       <div
         style={{ paddingTop: "175px", paddingBottom: "50px" }}
-        className="container "
+        className={`container ${device === TABLET && "tablet"} ${
+          device === MOBILE && "mobile"
+        } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
       >
         <div className="row ">
-          <div className="col-6">
+          <div className="col-12 col-lg-6">
             <WrapperForm className="form">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -122,7 +127,7 @@ export default function Login() {
               </form>
             </WrapperForm>
           </div>
-          <div className="col-6">
+          <div className="col-lg-6 login-text">
             <h2 style={{ fontFamily: "'Merriweather', serif" }}>
               Chào mừng bạn đến với Cybersoft Cinema!
             </h2>
@@ -139,3 +144,5 @@ export default function Login() {
     </>
   );
 }
+
+export default withViewport(Login);

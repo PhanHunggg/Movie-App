@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
 import { LoadingContext } from "../../contexts/loading/LoadingContext";
+import { withViewport } from "../../HOCs/withViewport";
 import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
 
-export default function MovieListPage() {
+function MovieListPage(device) {
   const [loadingState, setLoadingState] = useContext(LoadingContext);
 
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ export default function MovieListPage() {
   const renderMovieList = (filterMovie) => {
     return filterMovie.map((ele) => {
       return (
-        <div key={ele.maPhim} className="col-4">
+        <div key={ele.maPhim} className="col-6 col-lg-4 col-xl-4">
           <div className="card mb-4">
             <div>
               <div className="rate">
@@ -72,8 +74,13 @@ export default function MovieListPage() {
     });
   };
   return (
-    <div style={{ paddingTop: "170px" }} className="container list-page">
-      <div className="filter-moviePage">
+    <div
+      style={{ paddingTop: "170px" }}
+      className={`list-page ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
+    >
+      <div className="container filter-moviePage">
         <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li className="nav-item" role="presentation">
             <button
@@ -129,3 +136,5 @@ export default function MovieListPage() {
     </div>
   );
 }
+
+export default withViewport(MovieListPage);

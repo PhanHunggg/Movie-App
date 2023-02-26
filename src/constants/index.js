@@ -6,3 +6,5 @@ export const GROUP_ID = "GP03";
 
 export const MOBILE = "MOBILE";
 export const TABLET = "TABLET";
+export const DESKTOP = "DESKTOP";
+export const LAPTOP = "LAPTOP";

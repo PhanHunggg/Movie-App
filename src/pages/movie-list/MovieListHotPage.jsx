@@ -39,7 +39,7 @@ export default function MovieListHotPage() {
     });
     return filterMovie.map((ele) => {
       return (
-        <div key={ele.maPhim} className="col-4">
+        <div key={ele.maPhim} className="col-6 col-lg-4 col-xl-4">
           <div className="card mb-4">
             <div>
               <div className="rate">
@@ -61,8 +61,8 @@ export default function MovieListHotPage() {
     });
   };
   return (
-    <div style={{ paddingTop: "170px" }} className="container list-page">
-      <div className="filter-moviePage">
+    <div style={{ paddingTop: "170px" }} className="list-page">
+      <div className="filter-moviePage container ">
         <div className="row movie">{renderMovieList()}</div>
       </div>
     </div>
