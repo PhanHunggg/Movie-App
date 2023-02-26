@@ -6,19 +6,19 @@ export default function Modal() {
   const movieState = useSelector((state) => state.userReducer);
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="exampleModal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-body">
             <button
               type="button"
-              class="close"
+              className="close"
               data-dismiss="modal"
               aria-label="Close"
             >

@@ -1,0 +1,45 @@
+.booked {
+  .booked_tickets {
+    display: flex;
+    gap: 40px;
+    .movie {
+      width: 216px;
+      height: 272px;
+      background-color: transparent;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .tickets {
+      p {
+        font-weight: 500;
+        font-size: 18px;
+        color: #fffffe;
+
+        span {
+          color: #b8c1ec;
+        }
+        span.chair {
+          background-color: #eebbc3;
+          margin: 2px 5px;
+          color: #232946;
+          padding: 4px 6px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+// .booked.tablet {
+//   .booked_tickets {
+//     .movie {
+//       width: 221px;
+//       height: 187px;
+//     }
+//     .tickets {
+//       font-size: 16px;
+//     }
+//   }
+// }

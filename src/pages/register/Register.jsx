@@ -57,7 +57,7 @@ export default function Register() {
         title: "Đăng Ký thành công!",
       });
 
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       Toast.fire({
         icon: "warning",

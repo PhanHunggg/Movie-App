@@ -63,14 +63,16 @@ function MovieListHotPage({ device }) {
     });
   };
   return (
-    <div
-      style={{ paddingTop: "170px" }}
-      className={`container list-page ${device === TABLET && "tablet"} ${
-        device === MOBILE && "mobile"
-      } ${device === DESKTOP && "desktop"}`}
-    >
-      <div className="filter-moviePage">
-        <div className="row movie">{renderMovieList()}</div>
+    <div className="list-page">
+      <div
+        style={{ paddingTop: "170px" }}
+        className={`container list-page ${device === TABLET && "tablet"} ${
+          device === MOBILE && "mobile"
+        } ${device === DESKTOP && "desktop"}`}
+      >
+        <div className="filter-moviePage">
+          <div className="row movie">{renderMovieList()}</div>
+        </div>
       </div>
     </div>
   );

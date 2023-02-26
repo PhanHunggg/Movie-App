@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperInput } from "./headerStyled";
 import "./header.scss";
@@ -56,8 +56,11 @@ function Header({ device }) {
         <div className=" action ml-2">
           {userState?.userInfo ? (
             <>
-              <i className="fa-solid fa-user"></i>
-              <span className="mr-3">{userState.userInfo.hoTen}</span>
+              <Link to={`/profile/${userState?.userInfo?.taiKhoan}`}>
+                <i className="fa-solid fa-user"></i>
+                <span className="mr-3">{userState.userInfo.hoTen}</span>
+              </Link>
+
               <div className="btn-action text-center">
                 <button
                   onClick={handleLogout}
@@ -68,7 +71,6 @@ function Header({ device }) {
                 </button>
                 <br />
                 {userState?.userInfo?.maLoaiNguoiDung === "QuanTri" && (
-                 
                   <button
                     onClick={() => {
                       navigate("/admin/movie-management");

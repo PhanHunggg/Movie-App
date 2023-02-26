@@ -36,6 +36,14 @@
 
   .user {
     flex-grow: 0;
+    a{
+      color: #232946;
+      transition: all 0.5s;
+      text-decoration: none;
+      &:hover{
+        color: green;
+      }
+    }
   }
 
   .btn-focus {
@@ -134,7 +142,7 @@
       }
       button {
         width: 106px;
-        font-size: 14px;
+        font-size: 13px;
         height: 33px;
       }
     }

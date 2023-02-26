@@ -13,10 +13,6 @@ export default function MovieManagement() {
   useEffect(() => {
     getMovieList();
   }, []);
-<<<<<<< HEAD
-  const [movie, setMovie] = useState();
-=======
->>>>>>> 20d8bcb31b94d40e8281637a48d3196e132ace56
 
   useEffect(() => {
     setLoadingState({ isLoading: true });

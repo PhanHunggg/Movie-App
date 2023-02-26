@@ -60,3 +60,18 @@ export const deleteUserApi = (user) => {
     method: "DELETE",
   });
 };
+
+export const fetchProfileUser = (user) => {
+  return axiosRequest({
+    url: `/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${user}`,
+    method: "POST",
+  });
+};
+
+export const updateProfile = (data) => {
+  return axiosRequest({
+    url: "/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+    method: "PUT",
+    data,
+  });
+};
