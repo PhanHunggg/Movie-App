@@ -6,7 +6,6 @@
       width: 340px;
       height: 463px;
 
-<<<<<<< HEAD
       &::after {
         content: "";
         position: absolute;
@@ -18,12 +17,6 @@
         opacity: 0;
         transition: all 0.5s;
       }
-=======
-        .card {
-            width: 340px;
-            height: 463px;
-            border: none;
->>>>>>> a02ec515849539764c3626eac636cdd898cfd67e
 
       &:hover::after {
         opacity: 1;
@@ -169,7 +162,6 @@
   }
 }
 
-<<<<<<< HEAD
 // .list-page.laptop {
 //     .filter-moviePage {
 //         .card {
@@ -185,17 +177,6 @@
       .card {
         width: 300px;
       }
-=======
-
-.list-page.laptop {
-    .filter-moviePage {
-        .movie {
-
-            .card {
-                width: 300px;
-            }
-        }
->>>>>>> a02ec515849539764c3626eac636cdd898cfd67e
     }
   }
 }
@@ -204,14 +185,6 @@
     .filter-moviePage {
         .movie {
 
-<<<<<<< HEAD
-//             .card {
-//                 width: 300px;
-//             }
-//         }
-//     }
-// }
-=======
             .card {
                 width: 250px;
                 height: 400px;
@@ -219,4 +192,3 @@
         }
     }
 }
->>>>>>> a02ec515849539764c3626eac636cdd898cfd67e
