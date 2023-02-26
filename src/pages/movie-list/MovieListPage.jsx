@@ -6,7 +6,7 @@ import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
 
 export default function MovieListPage() {
-  const [loadingState, setLoadingState] = useContext(LoadingContext);
+  const [_, setLoadingState] = useContext(LoadingContext);
 
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ export default function MovieListPage() {
   const renderMovieList = (filterMovie) => {
     return filterMovie.map((ele) => {
       return (
-        <div key={ele.maPhim} className="col-4">
+        <div key={ele.maPhim} className="col-6 col-lg-4">
           <div className="card mb-4">
             <div>
               <div className="rate">
