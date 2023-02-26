@@ -13,7 +13,10 @@ export default function MovieManagement() {
   useEffect(() => {
     getMovieList();
   }, []);
+<<<<<<< HEAD
   const [movie, setMovie] = useState();
+=======
+>>>>>>> 20d8bcb31b94d40e8281637a48d3196e132ace56
 
   useEffect(() => {
     setLoadingState({ isLoading: true });
@@ -32,15 +35,16 @@ export default function MovieManagement() {
       const data = [...movieList];
       const idx = data.findIndex((ele) => ele.maPhim === movie.maPhim);
       if (idx === -1) return;
+      await deleteMovieApi(movie.maPhim);
+
       data.splice(idx, 1);
       setMovieList(data);
-      await deleteMovieApi(movie.maPhim);
       notification.success({
         message: "Xóa phim thành công",
       });
     } catch (error) {
       console.log(error);
-      notification.success({
+      notification.error({
         message: error.response.data.content,
       });
     }

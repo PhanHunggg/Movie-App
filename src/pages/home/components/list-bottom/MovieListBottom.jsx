@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fetchMovieListAction } from "../../../../store/actions/userActions";
 import "./movieList.scss";
 import SwiperCore, { Virtual, Navigation, Pagination, Autoplay } from "swiper";
@@ -12,10 +12,13 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
+import { withViewport } from "../../../../HOCs/withViewport";
+import { MOBILE, TABLET } from "../../../../constants";
 
 // install Virtual module
 SwiperCore.use([Virtual, Navigation, Pagination, Autoplay]);
-export default function MovieListBottom() {
+
+function MovieListBottom({ device }) {
   const stateMovie = useSelector((state) => state.userReducer);
   //   console.log(stateMovie);
 
@@ -71,28 +74,36 @@ export default function MovieListBottom() {
     });
   };
   return (
-    <div className="container mt-4 pb-5">
-      <div className="text-right btn_xemThem d-flex mb-3">
-        <h2 className="ml-2">PHIM HAY</h2>
-        <button onClick={navigateMovieList} className="btn">
-          XEM THÊM
-          <i className="fa fa-angle-right ml-2"></i>
-        </button>
-      </div>
-      <div className="row movie">
-        <Swiper
-          watchSlidesProgress={true}
-          slidesPerView={3}
-          className="mySwiper"
-          navigation={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-        >
-          {renderMovieList()}
-        </Swiper>
+    <div style={{backgroundColor: "#232946"}}  className="movie_bottom py-4">
+      <div
+        className={`container py-5  review ${
+          device === TABLET && "tablet"
+        } ${device === MOBILE && "mobile"}`}
+      >
+        <div className="text-right btn_xemThem d-flex mb-3">
+          <h2 className="ml-2">PHIM HAY</h2>
+          <button onClick={navigateMovieList} className="btn">
+            XEM THÊM
+            <i className="fa fa-angle-right ml-2"></i>
+          </button>
+        </div>
+        <div className="row movie">
+          <Swiper
+            watchSlidesProgress={true}
+            slidesPerView={3}
+            className="mySwiper"
+            navigation={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+          >
+            {renderMovieList()}
+          </Swiper>
+        </div>
       </div>
     </div>
   );
 }
+
+export default withViewport(MovieListBottom);

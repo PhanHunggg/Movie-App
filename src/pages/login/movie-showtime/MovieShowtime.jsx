@@ -128,13 +128,10 @@ export default function MovieShowtime() {
   return (
     <div>
       <h3>-Tạo lịch chiếu-</h3>
-      <div className="row">
-        <div className="col-5">
-          <div style={{ width: "300px" }} className="img">
-            <Image
-              style={{ width: "100%", height: "100%" }}
-              src={movie.hinhAnh}
-            />
+      <div className="row  mt-4">
+        <div className="col-5 text-center">
+          <div className="img">
+            <Image style={{ width: 235 }} src={movie.hinhAnh} />
           </div>
         </div>
         <div className="col-7">
@@ -181,7 +178,7 @@ export default function MovieShowtime() {
               />
             </Form.Item>
 
-            <Form.Item name="ngayChieuGioChieu" label="DatePicker">
+            <Form.Item name="ngayChieuGioChieu" label="Ngày giờ chiếu">
               <DatePicker
                 format="YYYY-MM-DD hh:mm:ss"
                 showTime={{

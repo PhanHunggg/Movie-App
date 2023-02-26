@@ -1,0 +1,92 @@
+.movie {
+  .imgBox {
+    position: relative;
+    height: 430px;
+    background-repeat: no-repeat;
+    background-size: 36%;
+    background-position: center center;
+    margin-bottom: 45px;
+    width: 900px;
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transition: all 0.5s;
+    }
+    &:hover .overlay {
+      opacity: 1;
+    }
+    .trailer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      z-index: 2;
+      button {
+        color: rgba(255, 255, 255, 0.7);
+        background-color: transparent;
+        font-size: 45px;
+        border: none;
+        opacity: 0;
+        transition: all 0.5s;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &:hover .trailer button {
+      opacity: 1;
+    }
+  }
+  .detail {
+    h2 {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    p {
+      span {
+        color: rgba(255, 255, 255, 0.764);
+      }
+    }
+    .rate {
+      span {
+        color: white !important;
+      }
+    }
+  }
+}
+
+.movie.tablet {
+  .col-4 {
+    .imgBox {
+      width: 210px;
+      height: 325px;
+    }
+  }
+  .detail {
+    padding-left: 120px;
+  }
+}
+
+.movie.mobile {
+  .col-4 {
+    .imgBox {
+      width: 192px;
+      height: 290px;
+    }
+  }
+  .detail {
+    padding-left: 150px;
+    h2 {
+      font-size: 25px;
+    }
+    span{
+      font-size: 16px;
+    }
+  }
+}
