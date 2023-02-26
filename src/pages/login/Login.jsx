@@ -109,17 +109,16 @@ export default function Login() {
                     ĐĂNG NHẬP
                   </button>
                   <hr />
-
-                  <button
-                    style={{ paddingTop: "10px", width: "100%" }}
-                    type="submit"
-                    className="btn btn-success mt-1"
-                    onClick={navigateRegister}
-                  >
-                    ĐĂNG KÝ
-                  </button>
                 </div>
               </form>
+              <button
+                style={{ paddingTop: "10px", width: "100%" }}
+                type="submit"
+                className="btn btn-success mt-1"
+                onClick={navigateRegister}
+              >
+                ĐĂNG KÝ
+              </button>
             </WrapperForm>
           </div>
           <div className="col-6">

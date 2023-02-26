@@ -9,13 +9,14 @@ export const loginApi = (user) => {
   });
 };
 
-<<<<<<< HEAD
 export const registerAPI = (user) => {
   return axiosRequest({
     url: "/QuanLyNguoiDung/DangKy",
     method: "POST",
     data: user,
-=======
+  });
+};
+
 export const fetchUserListApi = () => {
   return axiosRequest({
     url: `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP_ID}`,
@@ -57,6 +58,5 @@ export const deleteUserApi = (user) => {
   return axiosRequest({
     url: `/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,
     method: "DELETE",
->>>>>>> 77a2cd18a83dbf9c228aea3556c788de54cce556
   });
 };

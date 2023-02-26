@@ -16,11 +16,8 @@ import MovieForm from "../pages/movie-form/MovieForm";
 import MovieListHotPage from "../pages/movie-list/MovieListHotPage";
 import MovieListPage from "../pages/movie-list/MovieListPage";
 import MovieManagement from "../pages/movieManagement/MovieManagement";
-<<<<<<< HEAD
 import Register from "../pages/register/Register";
-=======
 import UserManagement from "../pages/user-management/UserManagement";
->>>>>>> 77a2cd18a83dbf9c228aea3556c788de54cce556
 
 export default function Router() {
   const routing = useRoutes([

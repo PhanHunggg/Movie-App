@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginApi, registerAPI } from "../../services/user";
+import { registerAPI } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 // import { WrapperForm } from "./loginStyled";
 import Swal from "sweetalert2/dist/sweetalert2.js";
@@ -67,8 +67,12 @@ export default function Register() {
     }
   };
   return (
-    <>
-      <form className="modal-body" onSubmit={handleSubmitRegister}>
+    <div className="container">
+      <form
+        className="modal-body"
+        onSubmit={handleSubmitRegister}
+        style={{ paddingTop: 150, marginLeft: 250, marginRight: 250 }}
+      >
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Tài Khoản</label>
           <input
@@ -133,7 +137,7 @@ export default function Register() {
           </button>
         </div>
       </form>
-    </>
+    </div>
     // <div
     //   className="modal fade"
     //   id="exampleModal"

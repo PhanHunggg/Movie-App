@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MOBILE, TABLET } from "../constants";
+import { DESKTOP, MOBILE, TABLET } from "../constants";
 
 export const useViewport = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -16,6 +16,8 @@ export const useViewport = () => {
 
   if (width <= 767) {
     return MOBILE;
+  } else if (width > 1020) {
+    return DESKTOP;
   } else if (width > 767 && width <= 1024) {
     return TABLET;
   }
