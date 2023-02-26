@@ -5,7 +5,7 @@ import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
 import { withViewport } from "../../HOCs/withViewport";
-import { DESKTOP, MOBILE, TABLET } from "../../constants";
+import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
 
 function MovieListHotPage({ device }) {
   const navigate = useNavigate();
@@ -63,6 +63,7 @@ function MovieListHotPage({ device }) {
     });
   };
   return (
+<<<<<<< HEAD
     <div className="list-page">
       <div
         style={{ paddingTop: "170px" }}
@@ -73,6 +74,16 @@ function MovieListHotPage({ device }) {
         <div className="filter-moviePage">
           <div className="row movie">{renderMovieList()}</div>
         </div>
+=======
+    <div
+      style={{ paddingTop: "170px" }}
+      className={` list-page ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      } ${device === DESKTOP && "desktop"} ${device === LAPTOP && "laptop"}`}
+    >
+      <div className="container filter-moviePage">
+        <div className="row movie">{renderMovieList()}</div>
+>>>>>>> a02ec515849539764c3626eac636cdd898cfd67e
       </div>
     </div>
   );

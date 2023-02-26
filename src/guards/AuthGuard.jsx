@@ -23,7 +23,7 @@ export default function AuthGuard() {
       navigate("/login");
 
       Toast.fire({
-        icon: "success",
+        icon: "warning",
         title: "Đăng nhập để tiếp tục đặt vé",
       });
     }

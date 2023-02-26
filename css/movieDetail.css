@@ -35,6 +35,9 @@
   font-weight: 500;
   color: rgb(160, 171, 197);
 }
+.movie_detail .col-8 p span {
+  color: black;
+}
 .movie_detail .col-8 p.rate {
   font-size: 18px;
 }

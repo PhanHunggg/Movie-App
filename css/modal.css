@@ -1,0 +1,18 @@
+.modal .modal-dialog {
+  margin: 5.5rem auto;
+}
+.modal .modal-dialog .modal-content {
+  width: 650px;
+}
+.modal .modal-dialog .modal-content .modal-body {
+  padding: 0;
+  position: relative;
+  height: 350px;
+}
+.modal .modal-dialog .modal-content .modal-body button {
+  position: absolute;
+  top: -24px;
+  right: -13px;
+  opacity: 1;
+  font-size: 2.5rem;
+}/*# sourceMappingURL=modal.css.map */

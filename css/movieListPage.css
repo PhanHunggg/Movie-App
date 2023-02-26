@@ -1,0 +1,148 @@
+.list-page {
+  background-color: rgb(35, 41, 70);
+}
+.list-page .filter-moviePage .card {
+  width: 340px;
+  height: 463px;
+  border: none;
+}
+.list-page .filter-moviePage .card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.list-page .filter-moviePage .card:hover::after {
+  opacity: 1;
+}
+.list-page .filter-moviePage .card .rate .rate-quality {
+  transition: all 0.5s;
+  position: absolute;
+  background: #ff4c00;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 2px;
+  opacity: 0;
+  z-index: 1;
+  top: 81%;
+  margin-left: 5px;
+}
+.list-page .filter-moviePage .card .rate .rate-point {
+  transition: all 0.5s;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  color: white;
+  right: 10px;
+  top: 3%;
+  font-size: 18px;
+}
+.list-page .filter-moviePage .card .rate .rate-point i {
+  margin-right: 3px;
+  color: #e89105;
+}
+.list-page .filter-moviePage .card:hover .rate-quality {
+  opacity: 1;
+}
+.list-page .filter-moviePage .card:hover .rate-point {
+  opacity: 1;
+}
+.list-page .filter-moviePage .card a {
+  cursor: pointer;
+}
+.list-page .filter-moviePage .card img {
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.list-page .filter-moviePage .card button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: 3px solid white;
+  padding: 6px 17px;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 1;
+  border-radius: 6px;
+}
+.list-page .filter-moviePage .card button:hover {
+  background-color: rgb(242, 107, 56);
+  color: white;
+  border: 3px solid rgb(242, 107, 56);
+}
+.list-page .filter-moviePage .card:hover button {
+  opacity: 1;
+}
+.list-page .filter-moviePage .card h4 {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  text-transform: uppercase !important;
+  padding: 10px 0 15px;
+  font-family: "Open Sans", sans-serif;
+  opacity: 0;
+  z-index: 1;
+  top: 85%;
+  transition: all 0.5s;
+  margin-left: 5px;
+  overflow: hidden;
+  max-height: 35px;
+  max-width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.list-page .filter-moviePage .card:hover h4 {
+  opacity: 1;
+}
+.list-page .filter-moviePage .nav-link.active {
+  border: none;
+  color: white;
+  background-color: rgb(242, 107, 56);
+  transition: all 0.2s;
+}
+.list-page .filter-moviePage .nav-link.active:hover {
+  background-color: rgb(242, 107, 56);
+}
+.list-page .filter-moviePage .nav-link.active:focus {
+  outline: none;
+  border: none;
+}
+.list-page .filter-moviePage .nav-link {
+  border: none;
+  color: black;
+  background-color: white;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+.list-page .filter-moviePage .nav-link:hover {
+  background-color: rgb(242, 107, 56);
+  color: white;
+}
+.list-page .filter-moviePage .nav-link:focus {
+  outline: none;
+  border: none;
+}
+
+.list-page.laptop .filter-moviePage .movie .card {
+  width: 300px;
+}
+
+.list-page.mobile .filter-moviePage .movie .card {
+  width: 250px;
+  height: 400px;
+}/*# sourceMappingURL=movieListPage.css.map */

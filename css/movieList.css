@@ -1,25 +1,91 @@
-.movie .card {
+.review .btn_xemThem {
+  justify-content: space-between !important;
+}
+.review .btn_xemThem h2 {
+  color: #fffffe;
+}
+.review .btn_xemThem button {
+  background-color: white;
+  color: rgb(242, 107, 56);
+  font-weight: 500;
+  border: none;
+  transition: all 0.5s;
+}
+.review .btn_xemThem button:hover {
+  color: #fffffe;
+  background-color: rgb(242, 107, 56);
+}
+.review .movie .swiper {
+  display: inline-block;
+  width: 100%;
+}
+.review .movie .swiper .swiper-wrapper {
+  margin-left: 25px;
+}
+.review .movie .swiper .swiper-button-prev {
+  margin-left: 20px;
+  color: rgb(242, 107, 56);
+}
+.review .movie .swiper .swiper-button-next {
+  margin-right: 10px;
+  color: rgb(242, 107, 56);
+}
+.review .movie .card {
+  border: none;
   width: 340px;
   height: 463px;
 }
-.movie .card::after {
+.review .movie .card::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.288);
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: all 0.5s;
 }
-.movie .card:hover::after {
+.review .movie .card:hover::after {
   opacity: 1;
 }
-.movie .card a {
+.review .movie .card .rate .rate-quality {
+  transition: all 0.5s;
+  position: absolute;
+  background: #ff4c00;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 2px;
+  opacity: 0;
+  z-index: 1;
+  top: 81%;
+  margin-left: 5px;
+}
+.review .movie .card .rate .rate-point {
+  transition: all 0.5s;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  color: white;
+  right: 10px;
+  top: 3%;
+  font-size: 18px;
+}
+.review .movie .card .rate .rate-point i {
+  margin-right: 3px;
+  color: #e89105;
+}
+.review .movie .card:hover .rate-quality {
+  opacity: 1;
+}
+.review .movie .card:hover .rate-point {
+  opacity: 1;
+}
+.review .movie .card a {
   cursor: pointer;
 }
-.movie .card img {
+.review .movie .card img {
   background: transparent;
   position: absolute;
   width: 100%;
@@ -27,12 +93,13 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.movie .card p {
+.review .movie .card button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
+  background-color: transparent;
   border: 3px solid white;
   padding: 6px 17px;
   font-size: 18px;
@@ -42,31 +109,42 @@
   z-index: 1;
   border-radius: 6px;
 }
-.movie .card p:hover {
+.review .movie .card button:hover {
   background-color: rgb(242, 107, 56);
   color: white;
   border: 3px solid rgb(242, 107, 56);
 }
-.movie .card:hover p {
+.review .movie .card:hover button {
   opacity: 1;
 }
-.movie h4 {
-  color: #43464b !important;
-  font-size: 16px;
+.review .movie .card h4 {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
   text-transform: uppercase !important;
   padding: 10px 0 15px;
-  font-family: "Merriweather", serif;
+  font-family: "Open Sans", sans-serif;
+  opacity: 0;
+  z-index: 1;
+  top: 85%;
+  transition: all 0.5s;
+  margin-left: 5px;
+  overflow: hidden;
+  max-height: 35px;
+  max-width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.review .movie .card:hover h4 {
+  opacity: 1;
 }
 
-.btn_xemThem a {
-  background-color: white;
-  color: rgb(242, 107, 56);
-  font-weight: 500;
-  border: 1px solid rgb(242, 107, 56);
-  transition: all 0.5s;
+.review.tablet .movie .card {
+  width: 230px !important;
+  height: 390px !important;
 }
-.btn_xemThem a:hover {
-  background-color: rgb(242, 107, 56);
-  color: white;
-  border: 1px solid rgb(242, 107, 56);
+
+.review.mobile .movie .card {
+  width: 163px !important;
+  height: 275px !important;
 }/*# sourceMappingURL=movieList.css.map */

@@ -21,7 +21,7 @@ SwiperCore.use([Virtual, Navigation, Pagination, Autoplay]);
 function MovieList({ device }) {
   const stateMovie = useSelector((state) => state.userReducer);
 
-  const [loadingState, setLoadingState] = useContext(LoadingContext);
+  const [_, setLoadingState] = useContext(LoadingContext);
 
   const dispatch = useDispatch();
 
