@@ -1,15 +1,24 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
 import { fetchCommentListAction } from "../../../../store/actions/userActions";
 import "./comment.scss";
 
 export default function Comment() {
+  const navigate = useNavigate();
+
+  const navigateDetail = (maphim) => {
+    navigate(`/movie-detail/${maphim}`);
+  };
+
   const dispatch = useDispatch();
 
   const [loadingState, setLoadingState] = useContext(LoadingContext);
 
   const stateMovie = useSelector((state) => state.userReducer);
+
+  // console.log(stateMovie.commentList);
 
   useEffect(() => {
     getCommentList();
@@ -34,7 +43,10 @@ export default function Comment() {
       return (
         <React.Fragment key={ele.maPhim}>
           {idx <= 7 && (
-            <div className="col-6 comment__film">
+            <div
+              className="col-6 comment__film"
+              onClick={() => navigateDetail(ele.maPhim)}
+            >
               <article className="blog ">
                 <div className="comment__image mr-3">
                   <a href="#">
@@ -42,7 +54,7 @@ export default function Comment() {
                   </a>
                 </div>
                 <h5>[Review] {ele.tenPhim}!</h5>
-                <ul>CHẤM ĐIỂM</ul>
+                <ul>Đánh giá: {ele.danhGia}/10</ul>
                 <div className="blog__content">
                   <span>{ele.moTa}</span>
                 </div>
@@ -55,7 +67,7 @@ export default function Comment() {
   };
 
   return (
-    <div style={{backgroundColor: "#232946"}}  className="comment py-4">
+    <div style={{ backgroundColor: "#232946" }} className="comment py-4">
       <div style={{ paddingBottom: "50px" }} className="container">
         <h3>Bình Luận Phim</h3>
         <div className="row">{renderComment()}</div>

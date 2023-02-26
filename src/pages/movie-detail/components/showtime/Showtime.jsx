@@ -23,7 +23,7 @@ function Showtime({ device }) {
   };
 
   const renderTap = () => {
-    console.log(showTimeList?.showTimeList?.heThongRapChieu);
+    // console.log(showTimeList?.showTimeList?.heThongRapChieu);
     return showTimeList?.showTimeList?.heThongRapChieu?.map((ele, idx) => {
       return (
         <div

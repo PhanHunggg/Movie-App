@@ -1,0 +1,74 @@
+.movie .imgBox {
+  position: relative;
+  height: 430px;
+  background-repeat: no-repeat;
+  background-size: 36%;
+  background-position: center center;
+  margin-bottom: 45px;
+  width: 900px;
+}
+.movie .imgBox .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.movie .imgBox:hover .overlay {
+  opacity: 1;
+}
+.movie .imgBox .trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.movie .imgBox .trailer button {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  font-size: 45px;
+  border: none;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.movie .imgBox .trailer button:focus {
+  outline: none;
+}
+.movie .imgBox:hover .trailer button {
+  opacity: 1;
+}
+.movie .detail h2 {
+  color: rgba(255, 255, 255, 0.75);
+}
+.movie .detail p span {
+  color: rgba(255, 255, 255, 0.764);
+}
+.movie .detail .rate span {
+  color: white !important;
+}
+
+.movie.tablet .col-4 .imgBox {
+  width: 210px;
+  height: 325px;
+}
+.movie.tablet .detail {
+  padding-left: 120px;
+}
+
+.movie.mobile .col-4 .imgBox {
+  width: 192px;
+  height: 290px;
+}
+.movie.mobile .detail {
+  padding-left: 150px;
+}
+.movie.mobile .detail h2 {
+  font-size: 25px;
+}
+.movie.mobile .detail span {
+  font-size: 16px;
+}/*# sourceMappingURL=detail.css.map */

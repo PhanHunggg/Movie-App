@@ -1,7 +1,8 @@
 .review {
   .btn_xemThem {
     justify-content: space-between !important;
-    h2{
+
+    h2 {
       color: #fffffe;
     }
 
@@ -40,6 +41,7 @@
     }
 
     .card {
+      border: none;
       width: 340px;
       height: 463px;
 
@@ -172,8 +174,6 @@
     }
   }
 }
-<<<<<<< HEAD
-=======
 
 .review.mobile {
   .movie {
@@ -183,4 +183,3 @@
     }
   }
 }
->>>>>>> 20d8bcb31b94d40e8281637a48d3196e132ace56

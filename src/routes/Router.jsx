@@ -16,10 +16,7 @@ import MovieListHotPage from "../pages/movie-list/MovieListHotPage";
 import MovieListPage from "../pages/movie-list/MovieListPage";
 import MovieManagement from "../pages/movieManagement/MovieManagement";
 import Register from "../pages/register/Register";
-<<<<<<< HEAD
-=======
 import UserForm from "../pages/user-form/UserForm";
->>>>>>> 20d8bcb31b94d40e8281637a48d3196e132ace56
 import UserManagement from "../pages/user-management/UserManagement";
 
 export default function Router() {

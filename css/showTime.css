@@ -1,0 +1,79 @@
+.showtime .title {
+  color: #fffffe;
+}
+.showtime .title::after {
+  width: 15%;
+  background-color: #fffffe;
+}
+.showtime .title:hover {
+  color: #fffffe;
+}
+.showtime .tab .nav-link {
+  font-weight: 600;
+  font-size: 18px;
+  color: #b8c1ec;
+  cursor: pointer;
+}
+.showtime .tab .nav-link img {
+  width: 50px;
+  margin-right: 10px;
+}
+.showtime .tab .nav-link.active {
+  color: #232946;
+  background-color: #eebbc3;
+}
+.showtime .theater .time h5 {
+  color: #fffffe;
+}
+.showtime .theater .time span {
+  color: #b8c1ec !important;
+}
+.showtime .theater .time .date_list {
+  margin-top: 16px;
+}
+.showtime .theater .time .date_list .btn_date {
+  margin-bottom: 25px;
+}
+.showtime .theater .time .date_list .btn_date .date {
+  color: #232946;
+  text-decoration: none;
+  transition: all 0.3s;
+  width: 50px;
+  height: 25px;
+  background-color: #eebbc3;
+  padding: 7px 15px;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 500;
+  box-shadow: 3px 5px 4px 1px #888888;
+  transition: all 0.5s;
+}
+.showtime .theater .time .date_list .btn_date .date:hover {
+  background-color: #fffffe;
+}
+
+.showtime.tablet .tab .nav-link {
+  font-size: 16px;
+  width: 217px;
+}
+.showtime.tablet .tab .nav-link img {
+  width: 41px;
+}
+.showtime.tablet .theater .time {
+  padding-left: 62px;
+}
+
+.showtime.mobile .tab .nav-link {
+  font-size: 15px;
+  width: 205px;
+}
+.showtime.mobile .tab .nav-link img {
+  width: 38px;
+}
+.showtime.mobile .theater .time {
+  padding-left: 84px;
+}
+.showtime.mobile .theater .time .date_list .btn_date .date {
+  padding: 6px 6px;
+  font-size: 15px;
+}/*# sourceMappingURL=showTime.css.map */

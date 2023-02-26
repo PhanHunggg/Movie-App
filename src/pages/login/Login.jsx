@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginApi, registerAPI } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-import "./login.scss";
 
 import "sweetalert2/src/sweetalert2.scss";
 import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
+import "./login.scss";
 import { withViewport } from "../../HOCs/withViewport";
+import { LoadingContext } from "../../contexts/loading/LoadingContext";
 
 function Login(device) {
   const Toast = Swal.mixin({
@@ -24,6 +25,8 @@ function Login(device) {
     },
   });
 
+  const [_, setLoadingState] = useContext(LoadingContext);
+  
   const navigate = useNavigate();
 
   const navigateRegister = () => {
@@ -44,6 +47,12 @@ function Login(device) {
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    // if () {
+    setLoadingState({ isLoading: false });
+    // }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -73,74 +82,74 @@ function Login(device) {
   };
 
   return (
-    <>
+    <div
+      className={`form-all  container ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
+    >
       <div
+        className="row"
         style={{ paddingTop: "175px", paddingBottom: "50px" }}
-        className={`container ${device === TABLET && "tablet"} ${
-          device === MOBILE && "mobile"
-        } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
       >
-        <div className="row ">
-          <div className="col-12 col-lg-6">
-            <WrapperForm className="form">
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Username</label>
-                  <input
-                    onChange={handleChange}
-                    name="taiKhoan"
-                    type="text"
-                    className="form-control"
-                  />
-                  <small id="emailHelp" className="form-text text-muted">
-                    We'll never share your email with anyone else.
-                  </small>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Password</label>
-                  <input
-                    onChange={handleChange}
-                    name="matKhau"
-                    type="password"
-                    className="form-control"
-                  />
-                </div>
-                <div className="button_submit text-center">
-                  <button
-                    style={{ paddingTop: "10px", width: "100%" }}
-                    type="submit"
-                    className="btn btn-primary"
-                  >
-                    ĐĂNG NHẬP
-                  </button>
-                  <hr />
-                </div>
-              </form>
-              <button
-                style={{ paddingTop: "10px", width: "100%" }}
-                type="submit"
-                className="btn btn-success mt-1"
-                onClick={navigateRegister}
-              >
-                ĐĂNG KÝ
-              </button>
-            </WrapperForm>
-          </div>
-          <div className="col-lg-6 login-text">
-            <h2 style={{ fontFamily: "'Merriweather', serif" }}>
-              Chào mừng bạn đến với Cybersoft Cinema!
-            </h2>
-            <p style={{ fontSize: "18px", fontWeight: "500" }}>
-              Hãy cùng bạn bè và gia đình khám phá thế giới movie tại
-              <span style={{ color: "#FFC72C" }}> Cybersoft Cinema</span>
-            </p>
-            <p style={{ fontSize: "18px", fontWeight: "500" }}>
-              Chúc bạn có những trải nghiệm vui vẻ khi xem phim tại rạp !!!
-            </p>
-          </div>
+        <div className="col-12 col-lg-6 form-login">
+          <WrapperForm className="form">
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Username</label>
+                <input
+                  onChange={handleChange}
+                  name="taiKhoan"
+                  type="text"
+                  className="form-control"
+                />
+                <small id="emailHelp" className="form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Password</label>
+                <input
+                  onChange={handleChange}
+                  name="matKhau"
+                  type="password"
+                  className="form-control"
+                />
+              </div>
+              <div className="button_submit text-center">
+                <button
+                  style={{ paddingTop: "10px", width: "100%" }}
+                  type="submit"
+                  className="btn btn-primary"
+                >
+                  ĐĂNG NHẬP
+                </button>
+                <hr />
+              </div>
+            </form>
+            <button
+              style={{ paddingTop: "10px", width: "100%" }}
+              type="submit"
+              className="btn btn-success mt-1"
+              onClick={navigateRegister}
+            >
+              ĐĂNG KÝ
+            </button>
+          </WrapperForm>
+        </div>
+        <div className="col-lg-6 login-text">
+          <h2 style={{ fontFamily: "'Merriweather', serif" }}>
+            Chào mừng bạn đến với Cybersoft Cinema!
+          </h2>
+          <p style={{ fontSize: "18px", fontWeight: "500" }}>
+            Hãy cùng bạn bè và gia đình khám phá thế giới movie tại
+            <span style={{ color: "#FFC72C" }}> Cybersoft Cinema</span>
+          </p>
+          <p style={{ fontSize: "18px", fontWeight: "500" }}>
+            Chúc bạn có những trải nghiệm vui vẻ khi xem phim tại rạp !!!
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

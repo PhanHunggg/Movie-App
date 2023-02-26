@@ -5,7 +5,7 @@ import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
 import { withViewport } from "../../HOCs/withViewport";
-import { DESKTOP, MOBILE, TABLET } from "../../constants";
+import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
 
 function MovieListHotPage({ device }) {
   const navigate = useNavigate();
@@ -65,11 +65,11 @@ function MovieListHotPage({ device }) {
   return (
     <div
       style={{ paddingTop: "170px" }}
-      className={`container list-page ${device === TABLET && "tablet"} ${
+      className={` list-page ${device === TABLET && "tablet"} ${
         device === MOBILE && "mobile"
-      } ${device === DESKTOP && "desktop"}`}
+      } ${device === DESKTOP && "desktop"} ${device === LAPTOP && "laptop"}`}
     >
-      <div className="filter-moviePage">
+      <div className="container filter-moviePage">
         <div className="row movie">{renderMovieList()}</div>
       </div>
     </div>

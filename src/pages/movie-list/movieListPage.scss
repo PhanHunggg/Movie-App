@@ -6,6 +6,7 @@
         .card {
             width: 340px;
             height: 463px;
+            border: none;
 
             &::after {
                 content: "";
@@ -163,19 +164,8 @@
     }
 }
 
-<<<<<<< HEAD
-// .list-page.laptop {
-//     .filter-moviePage {
-//         .card {
-//             width: 300px !important;
-//             height: 450px;
-//         }
 
-=======
-
-.list-page.tablet {
-    // max-width: 640px;
-
+.list-page.laptop {
     .filter-moviePage {
         .movie {
 
@@ -187,14 +177,14 @@
 
 }
 
-// .list-page.desktop{
-//     .filter-moviePage {
-//         .movie {
+.list-page.mobile {
+    .filter-moviePage {
+        .movie {
 
-//             .card {
-//                 width: 300px;
-//             }
-//         }
->>>>>>> 7d8eef60025bd765c3f1d0f8ed26d8bd5216b213
-//     }
-// }
+            .card {
+                width: 250px;
+                height: 400px;
+            }
+        }
+    }
+}
