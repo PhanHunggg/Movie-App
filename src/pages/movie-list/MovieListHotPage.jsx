@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
+import { withViewport } from "../../HOCs/withViewport";
+import { DESKTOP, MOBILE, TABLET } from "../../constants";
 
-export default function MovieListHotPage() {
+function MovieListHotPage({ device }) {
   const navigate = useNavigate();
 
-  const [loadingState, setLoadingState] = useContext(LoadingContext);
+  const [_, setLoadingState] = useContext(LoadingContext);
 
   const dispatch = useDispatch();
 
@@ -61,10 +63,17 @@ export default function MovieListHotPage() {
     });
   };
   return (
-    <div style={{ paddingTop: "170px" }} className="list-page">
-      <div className="filter-moviePage container ">
+    <div
+      style={{ paddingTop: "170px" }}
+      className={`container list-page ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      } ${device === DESKTOP && "desktop"}`}
+    >
+      <div className="filter-moviePage">
         <div className="row movie">{renderMovieList()}</div>
       </div>
     </div>
   );
 }
+
+export default withViewport(MovieListHotPage);

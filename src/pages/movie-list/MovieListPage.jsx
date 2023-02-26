@@ -8,7 +8,7 @@ import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
 
 function MovieListPage(device) {
-  const [loadingState, setLoadingState] = useContext(LoadingContext);
+  const [_, setLoadingState] = useContext(LoadingContext);
 
   const navigate = useNavigate();
 

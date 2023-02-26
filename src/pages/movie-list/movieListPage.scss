@@ -163,6 +163,7 @@
     }
 }
 
+<<<<<<< HEAD
 // .list-page.laptop {
 //     .filter-moviePage {
 //         .card {
@@ -170,5 +171,30 @@
 //             height: 450px;
 //         }
 
+=======
+
+.list-page.tablet {
+    // max-width: 640px;
+
+    .filter-moviePage {
+        .movie {
+
+            .card {
+                width: 300px;
+            }
+        }
+    }
+
+}
+
+// .list-page.desktop{
+//     .filter-moviePage {
+//         .movie {
+
+//             .card {
+//                 width: 300px;
+//             }
+//         }
+>>>>>>> 7d8eef60025bd765c3f1d0f8ed26d8bd5216b213
 //     }
 // }
