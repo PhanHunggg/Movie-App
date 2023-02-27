@@ -7,7 +7,7 @@ import { withViewport } from "../../../../HOCs/withViewport";
 import { MOBILE, TABLET } from "../../../../constants";
 import "./banner.scss";
 const contentStyle = {
-  height: "600px",
+  height: "720px",
   color: "#fff",
   lineHeight: "160px",
   textAlign: "center",

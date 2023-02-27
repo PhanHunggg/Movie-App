@@ -1,17 +1,22 @@
-.header {
-  position: fixed !important;
+.header.navbar {
+  transition: all .5s;
+  top: 0px;
+  position: fixed;
   width: 100%;
   z-index: 5;
-  background-color: #b8c1ec;
+  background-color: rgb(20, 20, 20);
+  padding: 0;
+
   a {
     p {
       margin: 0;
       font-size: 30px;
       font-family: "Merriweather", serif;
       font-weight: bold;
-      color: rgb(34, 34, 96);
+      color: #e50914;
     }
   }
+
   .search {
     border: 1px solid #ced0da;
     padding-right: 8px;
@@ -27,6 +32,7 @@
       color: #43464b;
       width: 250px;
     }
+
     button {
       border: none;
       background-color: white;
@@ -36,11 +42,13 @@
 
   .user {
     flex-grow: 0;
-    a{
+
+    a {
       color: #232946;
       transition: all 0.5s;
       text-decoration: none;
-      &:hover{
+
+      &:hover {
         color: green;
       }
     }
@@ -51,24 +59,30 @@
       outline: none !important;
     }
   }
+
   .form-control:focus {
     box-shadow: none !important;
   }
+
   .user {
     .fa-solid {
       margin-right: 5px;
     }
+
     .action {
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       span {
         font-weight: 500;
         font-size: 18px;
       }
+
       button {
         font-weight: 500;
       }
+
       .btn-admin {
         margin-top: 5px;
         width: 116px;
@@ -77,37 +91,49 @@
   }
 }
 
+.header.scroll.navbar {
+  background: rgb(20, 20, 20) !important;
+  transition: all .3s;
+}
+
 .header.tablet {
   a {
     margin: 0;
+
     img {
       width: 55px;
     }
+
     p {
       font-size: 19px;
     }
   }
+
   .search {
     input {
       width: 175px;
     }
   }
+
   .user {
     .action {
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       span {
         font-size: 16px;
-        margin-right: 0 !important ;
+        margin-right: 0 !important;
         width: 150px;
       }
+
       button {
         width: 106px;
         height: 35px;
         font-weight: 600;
         font-size: 14px;
       }
+
       .btn-admin {
         margin-top: 5px;
         margin-left: 0;
@@ -120,26 +146,32 @@
 .header.mobile {
   a {
     margin-right: 0 !important;
+
     img {
       width: 55px;
     }
+
     p {
       font-size: 18px;
     }
   }
+
   .search {
     input {
       width: 150px;
     }
   }
+
   .user {
     .action {
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       span {
         font-size: 15px;
       }
+
       button {
         width: 106px;
         font-size: 13px;

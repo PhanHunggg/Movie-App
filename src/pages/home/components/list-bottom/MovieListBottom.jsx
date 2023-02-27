@@ -74,7 +74,7 @@ function MovieListBottom({ device }) {
     });
   };
   return (
-    <div style={{backgroundColor: "#232946"}}  className="movie_bottom py-4">
+    <div style={{backgroundColor: "#0b0b0b"}}  className="movie_bottom py-4">
       <div
         className={`container py-5  review ${
           device === TABLET && "tablet"

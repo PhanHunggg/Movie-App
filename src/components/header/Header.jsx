@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { setUserAction } from "../../store/actions/userActions";
@@ -25,11 +25,26 @@ function Header({ device }) {
 
     navigate("/");
   };
+
+  const handleChangeY = () => {
+    window.addEventListener("scroll", function (event) {
+      var scroll_y = this.scrollY;
+      console.log(scroll_y);
+
+      if (scroll_y !== 0) {
+        document.querySelector(".header").classList.add("scroll");
+      } else {
+        document.querySelector(".header").classList.remove("scroll");
+      }
+    });
+  };
   return (
     <nav
       className={`navbar navbar-expand-sm navbar-light justify-content-around header ${
         device === TABLET && "tablet"
       } ${device === MOBILE && "mobile"}`}
+      style={{ background: "transparent" }}
+      onChange={handleChangeY()}
     >
       <NavLink className="navbar-brand d-flex align-items-center " to="/">
         <img src="./images/logoCinema.png" alt="logoCinema" />
