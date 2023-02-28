@@ -1,10 +1,9 @@
 .list-page {
-  background-color: rgb(35, 41, 70);
+  background-color: #0b0b0b;
 }
 .list-page .filter-moviePage .card {
   width: 340px;
   height: 463px;
-  border: none;
 }
 .list-page .filter-moviePage .card::after {
   content: "";
@@ -138,7 +137,7 @@
   border: none;
 }
 
-.list-page.laptop .filter-moviePage .movie .card {
+.list-page.tablet .filter-moviePage .movie .card {
   width: 300px;
 }
 

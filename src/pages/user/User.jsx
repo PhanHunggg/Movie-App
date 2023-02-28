@@ -52,7 +52,7 @@ export default function User() {
             aria-controls="pills-home"
             aria-selected="true"
           >
-            Giao dịch của tôi
+            Lịch sử giao dịch
           </button>
         </li>
       </ul>
@@ -71,7 +71,7 @@ export default function User() {
           role="tabpanel"
           aria-labelledby="pills-home-tab"
         >
-          <BookingHistory profile={profile}/>
+          <BookingHistory profile={profile} />
         </div>
       </div>
     </div>

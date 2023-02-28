@@ -76,21 +76,16 @@ function MovieList({ device }) {
     });
   };
   return (
-    <div
-      style={{ backgroundColor: "#0b0b0b" }}
-      className="movie_list py-4"
-    >
+    <div style={{backgroundColor: "#0b0b0b"}} className="movie_list py-4">
       <div
-        className={`container py-5 review ${device === TABLET && "tablet"} ${
-          device === MOBILE && "mobile"
-        }`}
+        className={`container py-5 review ${
+          device === TABLET && "tablet"
+        } ${device === MOBILE && "mobile"}`}
       >
         <div className="text-right btn_xemThem d-flex mb-3">
-          <h2 style={{ color: "fffffe" }} className="ml-2">
-            HOT
-          </h2>
+          <h2 style={{color: "fffffe"}} className="ml-2">HOT</h2>
           <button onClick={navigateMovieListHot} className="btn">
-            XEM THÊM
+            XEM TẤT CẢ
             <i className="fa fa-angle-right ml-2"></i>
           </button>
         </div>

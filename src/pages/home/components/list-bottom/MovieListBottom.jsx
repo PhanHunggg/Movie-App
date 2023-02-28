@@ -80,10 +80,10 @@ function MovieListBottom({ device }) {
           device === TABLET && "tablet"
         } ${device === MOBILE && "mobile"}`}
       >
-        <div className="text-right btn_xemThem d-flex mb-3">
+        <div className="text-right btn_xemThem d-flex mb-2">
           <h2 className="ml-2">PHIM HAY</h2>
           <button onClick={navigateMovieList} className="btn">
-            XEM THÊM
+            XEM TẤT CẢ
             <i className="fa fa-angle-right ml-2"></i>
           </button>
         </div>

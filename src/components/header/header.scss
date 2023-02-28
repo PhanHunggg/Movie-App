@@ -13,7 +13,7 @@
       font-size: 30px;
       font-family: "Merriweather", serif;
       font-weight: bold;
-      color: #e50914;
+      color: rgb(242, 107, 56);
     }
   }
 
@@ -51,6 +51,17 @@
       &:hover {
         color: green;
       }
+
+      .btn-information.btn-information {
+        transition: all .3s;
+
+        &:hover {
+          color: #fff;
+          background-color: #007bff;
+          border-color: #007bff;
+          transition: all .3;
+        }
+      }
     }
   }
 
@@ -65,6 +76,24 @@
   }
 
   .user {
+    .dropdown {
+      .dropdown-toggle {
+        border-radius: 50%;
+
+        i {
+          font-size: 17px;
+        }
+
+        &::after {
+          font-size: 0;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
     .fa-solid {
       margin-right: 5px;
     }
@@ -77,15 +106,58 @@
       span {
         font-weight: 500;
         font-size: 18px;
+        color: white;
       }
 
       button {
         font-weight: 500;
+        border-radius: 0;
       }
 
-      .btn-admin {
-        margin-top: 5px;
-        width: 116px;
+      .btn-admin.btn-admin {
+        transition: all .3s;
+
+        &:hover {
+          color: #fff;
+          background-color: #28a745;
+          border-color: #28a745;
+          border-radius: 0;
+          transition: all .3s;
+        }
+
+      }
+
+      .btn-logout.btn-logout {
+        transition: all .3s;
+
+        &:hover {
+          color: #fff;
+          background-color: #dc3545;
+          border-color: #dc3545;
+          transition: all .3s;
+        }
+      }
+
+      .btn-login.btn-login {
+        transition: all .3s;
+
+        &:hover {
+          color: #fff;
+          background-color: #007bff;
+          border-color: #007bff;
+          transition: all .3s;
+        }
+      }
+
+      .btn-register.btn-register {
+        transition: all .3s;
+
+        &:hover {
+          color: #fff;
+          background-color: #007bff;
+          border-color: #007bff;
+          transition: all .3s;
+        }
       }
     }
   }

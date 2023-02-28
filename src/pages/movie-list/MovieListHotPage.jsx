@@ -63,7 +63,7 @@ function MovieListHotPage({ device }) {
     });
   };
   return (
-    <div className="list-page">
+    <div className="list-page pb-3">
       <div
         style={{ paddingTop: "170px" }}
         className={`container list-page ${device === TABLET && "tablet"} ${

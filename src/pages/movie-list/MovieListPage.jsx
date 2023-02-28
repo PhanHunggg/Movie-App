@@ -75,8 +75,8 @@ function MovieListPage(device) {
   };
   return (
     <div
-      style={{ paddingTop: "170px" }}
-      className={`list-page ${device === TABLET && "tablet"} ${
+      style={{ paddingTop: "170px"}}
+      className={`list-page pb-3 ${device === TABLET && "tablet"} ${
         device === MOBILE && "mobile"
       } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
     >

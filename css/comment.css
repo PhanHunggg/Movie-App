@@ -63,6 +63,9 @@
 .container .row .comment__film .blog ul {
   margin-bottom: 3px;
 }
+.container .row .comment__film .blog .Evaluate {
+  color: #f26b38;
+}
 .container .row .comment__film .blog .blog__content {
   color: #b8c1ec;
   display: -webkit-box;

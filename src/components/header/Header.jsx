@@ -29,7 +29,7 @@ function Header({ device }) {
   const handleChangeY = () => {
     window.addEventListener("scroll", function (event) {
       var scroll_y = this.scrollY;
-      console.log(scroll_y);
+      // console.log(scroll_y);
 
       if (scroll_y !== 0) {
         document.querySelector(".header").classList.add("scroll");
@@ -72,48 +72,70 @@ function Header({ device }) {
           {userState?.userInfo ? (
             <>
               <Link to={`/profile/${userState?.userInfo?.taiKhoan}`}>
-                <i className="fa-solid fa-user"></i>
                 <span className="mr-3">{userState.userInfo.hoTen}</span>
               </Link>
-
-              <div className="btn-action text-center">
+              <div className="dropdown">
                 <button
-                  onClick={handleLogout}
-                  className="btn btn-danger"
-                  type="logout"
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  ĐĂNG XUẤT
+                  <i className="fa fa-user" />
                 </button>
-                <br />
-                {userState?.userInfo?.maLoaiNguoiDung === "QuanTri" && (
+                <div className="dropdown-menu">
+                  <Link to={`/profile/${userState?.userInfo?.taiKhoan}`}>
+                    <button className="btn-information btn-primary dropdown-item">
+                      THÔNG TIN
+                    </button>
+                  </Link>
+                  {userState?.userInfo?.maLoaiNguoiDung === "QuanTri" && (
+                    <button
+                      onClick={() => {
+                        navigate("/admin/movie-management");
+                      }}
+                      className="btn btn-success btn-admin dropdown-item"
+                      type="logout"
+                    >
+                      ADMIN
+                    </button>
+                  )}
                   <button
-                    onClick={() => {
-                      navigate("/admin/movie-management");
-                    }}
-                    className="btn btn-success btn-admin"
+                    onClick={handleLogout}
+                    className="btn btn-danger btn-logout dropdown-item"
                     type="logout"
                   >
-                    Admin
+                    ĐĂNG XUẤT
                   </button>
-                )}
+                </div>
               </div>
             </>
           ) : (
-            <>
+            <div className="dropdown">
               <button
-                className="btn btn-outline-info my-2 my-sm-0 mr-2"
-                type="sumit"
-                onClick={navigateRegister}
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
               >
-                ĐĂNG KÝ
+                <i className="fa fa-user" />
               </button>
-              <button
-                onClick={navigateLogin}
-                className="btn btn-outline-success my-2 my-sm-0"
-              >
-                ĐĂNG NHẬP
-              </button>
-            </>
+              <div className="dropdown-menu">
+                <button
+                  className="btn btn-outline-info my-2 my-sm-0 mr-2 dropdown-item btn-register"
+                  type="sumit"
+                  onClick={navigateRegister}
+                >
+                  ĐĂNG KÝ
+                </button>
+                <button
+                  onClick={navigateLogin}
+                  className="btn btn-outline-success my-2 my-sm-0 dropdown-item btn-login"
+                >
+                  ĐĂNG NHẬP
+                </button>
+              </div>
+            </div>
           )}
         </div>
       </div>

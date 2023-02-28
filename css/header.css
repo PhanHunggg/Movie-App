@@ -1,23 +1,26 @@
-.header {
-  position: fixed !important;
+.header.navbar {
+  transition: all 0.5s;
+  top: 0px;
+  position: fixed;
   width: 100%;
   z-index: 5;
-  background-color: #b8c1ec;
+  background-color: rgb(20, 20, 20);
+  padding: 0;
 }
-.header a p {
+.header.navbar a p {
   margin: 0;
   font-size: 30px;
   font-family: "Merriweather", serif;
   font-weight: bold;
-  color: rgb(34, 34, 96);
+  color: rgb(242, 107, 56);
 }
-.header .search {
+.header.navbar .search {
   border: 1px solid #ced0da;
   padding-right: 8px;
   border-radius: 6px;
   background-color: white;
 }
-.header .search input {
+.header.navbar .search input {
   border: none;
   font-size: 14px;
   padding: 6px 25px 6px 10px;
@@ -26,37 +29,106 @@
   color: #43464b;
   width: 250px;
 }
-.header .search button {
+.header.navbar .search button {
   border: none;
   background-color: white;
 }
-.header .user {
+.header.navbar .user {
   flex-grow: 0;
 }
-.header .btn-focus:focus {
+.header.navbar .user a {
+  color: #232946;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+.header.navbar .user a:hover {
+  color: green;
+}
+.header.navbar .user a .btn-information.btn-information {
+  transition: all 0.3s;
+}
+.header.navbar .user a .btn-information.btn-information:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: all 0.3;
+}
+.header.navbar .btn-focus:focus {
   outline: none !important;
 }
-.header .form-control:focus {
+.header.navbar .form-control:focus {
   box-shadow: none !important;
 }
-.header .user .fa-solid {
+.header.navbar .user .dropdown .dropdown-toggle {
+  border-radius: 50%;
+}
+.header.navbar .user .dropdown .dropdown-toggle i {
+  font-size: 17px;
+}
+.header.navbar .user .dropdown .dropdown-toggle::after {
+  font-size: 0;
+}
+.header.navbar .user .dropdown .dropdown-toggle:focus {
+  box-shadow: none;
+}
+.header.navbar .user .fa-solid {
   margin-right: 5px;
 }
-.header .user .action {
+.header.navbar .user .action {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.header .user .action span {
+.header.navbar .user .action span {
   font-weight: 500;
   font-size: 18px;
+  color: white;
 }
-.header .user .action button {
+.header.navbar .user .action button {
   font-weight: 500;
+  border-radius: 0;
 }
-.header .user .action .btn-admin {
-  margin-top: 5px;
-  width: 116px;
+.header.navbar .user .action .btn-admin.btn-admin {
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-admin.btn-admin:hover {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  border-radius: 0;
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-logout.btn-logout {
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-logout.btn-logout:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-login.btn-login {
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-login.btn-login:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-register.btn-register {
+  transition: all 0.3s;
+}
+.header.navbar .user .action .btn-register.btn-register:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: all 0.3s;
+}
+
+.header.scroll.navbar {
+  background: rgb(20, 20, 20) !important;
+  transition: all 0.3s;
 }
 
 .header.tablet a {
@@ -115,6 +187,6 @@
 }
 .header.mobile .user .action button {
   width: 106px;
-  font-size: 14px;
+  font-size: 13px;
   height: 33px;
 }/*# sourceMappingURL=header.css.map */
