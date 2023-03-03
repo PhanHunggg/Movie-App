@@ -2,18 +2,21 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { setUserAction } from "../../store/actions/userActions";
-import { WrapperInput } from "./headerStyled";
 import "./header.scss";
 import { withViewport } from "../../HOCs/withViewport";
-import { DESKTOP, MOBILE, TABLET } from "../../constants";
+import { MOBILE, TABLET } from "../../constants";
+import { formatDateSearch } from "../../utils";
 
 function Header({ device }) {
+  const [keyword, setKeyword] = useState();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.userReducer);
+  const { movieList } = userState;
   const navigate = useNavigate();
   const navigateLogin = () => {
     navigate("/login");
   };
+  console.log(movieList);
 
   const navigateRegister = () => {
     navigate("/register");
@@ -24,6 +27,45 @@ function Header({ device }) {
     dispatch(setUserAction(null));
 
     navigate("/");
+  };
+
+  const handleChange = (event) => {
+    setKeyword(event.target.value);
+  };
+
+  const renderMovieSearch = () => {
+    const filterMovie = movieList?.filter((ele) => {
+      return (
+        ele.tenPhim
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/đ/g, "d")
+          .replace(/Đ/g, "D")
+          .toLowerCase()
+          .indexOf(keyword?.toLowerCase()) !== -1
+      );
+    });
+
+    return filterMovie?.map((ele) => {
+      return (
+        <div key={ele.maPhim} className="card">
+          <div className=" row">
+            <div className="col-4">
+              <img src={ele.hinhAnh} alt={ele.maPhim} />
+            </div>
+            <div className="col-8">
+              <div className="content">
+                <p>Tên phim: {ele.tenPhim}</p>
+                <p>
+                  Đánh giá: <span>{ele.danhGia}</span>/10
+                </p>
+                <p>Ngày chiếu: {formatDateSearch(ele.ngayKhoiChieu)}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
   };
 
   const handleChangeY = () => {
@@ -55,6 +97,7 @@ function Header({ device }) {
       ) : (
         <div className="d-flex search ml-2">
           <input
+            onChange={handleChange}
             type="text"
             className="form-control"
             aria-label="Sizing example input"
@@ -64,6 +107,7 @@ function Header({ device }) {
           <button className="btn-focus">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
+          {keyword && <div className="active">{renderMovieSearch()}</div>}
         </div>
       )}
 
