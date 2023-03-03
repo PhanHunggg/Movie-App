@@ -1,7 +1,41 @@
-// .form-all.tablet {
-//     background-color: red;
-// }
+.form-all.tablet {
+    .row {
+        flex-direction: column-reverse;
 
-// .form-all {
-//     background-color: aqua;
-// }
+        .form-login {
+            padding-left: 150px;
+        }
+
+        .login-text {
+            margin-bottom: 30px;
+            text-align: center;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            h2 {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.form-all.mobile {
+    .row {
+        flex-direction: column-reverse;
+
+        .login-text {
+            text-align: center;
+            margin-bottom: 30px;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        .form-login {
+            padding-left: 60px;
+        }
+    }
+}

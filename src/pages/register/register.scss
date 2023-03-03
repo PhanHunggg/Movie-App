@@ -15,3 +15,23 @@
         }
     }
 }
+
+.register.mobile {
+    .form {
+        .modal-body {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+            padding-top: 100px !important;
+        }
+    }
+}
+
+.register.tablet {
+    .form {
+        .modal-body {
+            margin-right: 100px !important;
+            margin-left: 100px !important;
+            padding-top: 100px !important;
+        }
+    }
+}

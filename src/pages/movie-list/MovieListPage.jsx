@@ -7,7 +7,7 @@ import { withViewport } from "../../HOCs/withViewport";
 import { fetchMovieListAction } from "../../store/actions/userActions";
 import "./movieListPage.scss";
 
-function MovieListPage(device) {
+function MovieListPage({device}) {
   const [_, setLoadingState] = useContext(LoadingContext);
 
   const navigate = useNavigate();

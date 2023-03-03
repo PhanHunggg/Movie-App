@@ -200,10 +200,11 @@
       }
 
       button {
-        width: 106px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
         font-weight: 600;
         font-size: 14px;
+        margin-left: 5px;
       }
 
       .btn-admin {
@@ -242,12 +243,15 @@
 
       span {
         font-size: 15px;
+        margin-right: 10px !important;
       }
 
       button {
-        width: 106px;
-        font-size: 13px;
-        height: 33px;
+        width: 40px;
+        height: 40px;
+        font-weight: 600;
+        font-size: 14px;
+        // margin-left: 5px;
       }
     }
   }

@@ -9,7 +9,7 @@ import "./register.scss";
 import { withViewport } from "../../HOCs/withViewport";
 import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
 
-function Register(device) {
+function Register({device}) {
   const navigate = useNavigate();
   const Toast = Swal.mixin({
     toast: true,

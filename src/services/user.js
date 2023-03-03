@@ -63,7 +63,7 @@ export const deleteUserApi = (user) => {
 
 export const fetchProfileUser = (user) => {
   return axiosRequest({
-    url: `/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${user}`,
+    url: `/QuanLyNguoiDung/ThongTinTaiKhoan?taiKhoan=${user}`,
     method: "POST",
   });
 };

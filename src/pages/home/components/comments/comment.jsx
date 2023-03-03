@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../../../constants";
 import { LoadingContext } from "../../../../contexts/loading/LoadingContext";
+import { withViewport } from "../../../../HOCs/withViewport";
 import { fetchCommentListAction } from "../../../../store/actions/userActions";
 import "./comment.scss";
 
-export default function Comment() {
+function Comment({ device }) {
   const navigate = useNavigate();
 
   const navigateDetail = (maphim) => {
@@ -67,7 +69,12 @@ export default function Comment() {
   };
 
   return (
-    <div style={{ backgroundColor: "#0b0b0b" }} className="comment py-4">
+    <div
+      style={{ backgroundColor: "#0b0b0b" }}
+      className={`comment py-4 ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
+    >
       <div style={{ paddingBottom: "50px" }} className="container">
         <h3>Bình Luận Phim</h3>
         <div className="row">{renderComment()}</div>
@@ -75,3 +82,5 @@ export default function Comment() {
     </div>
   );
 }
+
+export default withViewport(Comment);

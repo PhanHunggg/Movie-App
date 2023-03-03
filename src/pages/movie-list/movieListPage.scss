@@ -182,13 +182,15 @@
 }
 
 .list-page.mobile {
-    .filter-moviePage {
-        .movie {
+  padding-top: 100px !important;
 
-            .card {
-                width: 250px;
-                height: 400px;
-            }
-        }
+  .filter-moviePage {
+    .movie {
+
+      .card {
+        width: 250px;
+        height: 400px;
+      }
     }
+  }
 }
