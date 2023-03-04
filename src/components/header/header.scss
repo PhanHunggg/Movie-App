@@ -33,6 +33,7 @@
       right: 0.1px;
       overflow: scroll;
       .card {
+        cursor: pointer;
         width: 100%;
         background-color: #121629;
         margin-bottom: 5px;
@@ -40,8 +41,13 @@
           margin-right: 0;
           .col-4 {
             padding-right: 5px;
-            img {
-              width: 100%;
+            button {
+              &:focus{
+                outline: none;
+              }
+              img {
+                width: 100%;
+              }
             }
           }
           .col-8 {
@@ -54,6 +60,9 @@
                 font-weight: 500;
                 &:nth-of-type(2) {
                   padding: 5px 0;
+                }
+                &:first-of-type {
+                  color: #fffffe;
                 }
               }
             }

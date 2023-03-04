@@ -51,7 +51,13 @@ function Header({ device }) {
         <div key={ele.maPhim} className="card">
           <div className=" row">
             <div className="col-4">
-              <img src={ele.hinhAnh} alt={ele.maPhim} />
+              <button
+                onClick={() => {
+                  navigate(`/movie-detail/${ele.maPhim}`);
+                }}
+              >
+                <img src={ele.hinhAnh} alt={ele.maPhim} />
+              </button>
             </div>
             <div className="col-8">
               <div className="content">
