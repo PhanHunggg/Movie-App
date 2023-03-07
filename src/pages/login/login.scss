@@ -1,41 +1,89 @@
-.form-all.tablet {
-    .row {
-        flex-direction: column-reverse;
-
-        .form-login {
-            padding-left: 150px;
-        }
-
-        .login-text {
-            margin-bottom: 30px;
-            text-align: center;
-
-            p {
-                margin-bottom: 0;
-            }
-
-            h2 {
-                margin-bottom: 0;
-            }
-        }
+.form-all {
+  .inputBox {
+    position: relative;
+    display: flex;
+    margin: 37px 0px;
+    &:first-child {
+      margin-top: 20px;
     }
+    .form-input {
+      &:focus {
+        border: 2px solid #00dfc4;
+        box-shadow: none;
+      }
+      &:not(:placeholder-shown) + .form-label,
+      &:focus + .form-label {
+        color: #00dfc4;
+        font-size: 0.75em;
+        transform: translate(10px, -7px);
+        background-color: rgb(240, 242, 245);
+        border-left: 1px solid #00dfc4;
+        border-right: 1px solid #00dfc4;
+        padding: 0 10px;
+        letter-spacing: 0.2em;
+        font-weight: 500;
+      }
+      width: 100%;
+      padding: 20px;
+      border: 1px solid rgb(206, 212, 218);
+      background-color: rgb(240, 242, 245);
+      border-radius: 5px;
+      outline: none;
+      color: #2d334a;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+    .form-label {
+      position: absolute;
+      left: 0;
+      padding: 10px;
+      pointer-events: none;
+      color: rgb(118, 123, 126);
+      font-size: 1em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+  }
+}
+
+.form-all.tablet {
+  .row {
+    flex-direction: column-reverse;
+
+    .form-login {
+      padding-left: 150px;
+    }
+
+    .login-text {
+      margin-bottom: 30px;
+      text-align: center;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 .form-all.mobile {
-    .row {
-        flex-direction: column-reverse;
+  .row {
+    flex-direction: column-reverse;
 
-        .login-text {
-            text-align: center;
-            margin-bottom: 30px;
+    .login-text {
+      text-align: center;
+      margin-bottom: 30px;
 
-            p {
-                margin-bottom: 0;
-            }
-        }
-
-        .form-login {
-            padding-left: 60px;
-        }
+      p {
+        margin-bottom: 0;
+      }
     }
+
+    .form-login {
+      padding-left: 60px;
+    }
+  }
 }

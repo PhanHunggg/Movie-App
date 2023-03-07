@@ -96,7 +96,7 @@ function Header({ device }) {
     >
       <NavLink className="navbar-brand d-flex align-items-center " to="/">
         <img src="./images/logoCinema.png" alt="logoCinema" />
-        <p className="font-weight-bold">Cybersoft Cinema</p>
+        <p className="font-weight-bold">Cyber Cinema</p>
       </NavLink>
       {device === MOBILE ? (
         ""
