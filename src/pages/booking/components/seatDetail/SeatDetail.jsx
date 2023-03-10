@@ -12,9 +12,6 @@ export default function SeatDetail() {
       <span className="mr-1 mb-1 d-inline-block p-2 rounded text-dark color__notBooked__bScreen">
         Có thể chọn
       </span>
-      <span className="mr-1 mb-1 d-inline-block p-2 rounded text-dark background-info">
-        Không thể chọn
-      </span>
       <span className="mr-1 mb-1 d-inline-block p-2 rounded background-warning">
         Ghế VIP
       </span>
