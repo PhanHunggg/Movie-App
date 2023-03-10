@@ -50,6 +50,7 @@ export default function Booking() {
         <SeatList
           handleSeatSelect={handleSeatSelect}
           movieDetail={movieDetail.danhSachGhe}
+          seatList={seatList}
         />
         <SeatListSelect
           seatList={seatList}

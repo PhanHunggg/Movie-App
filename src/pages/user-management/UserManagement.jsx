@@ -30,6 +30,7 @@ export default function UserManagement() {
   const handleDeleteUser = async (user) => {
     const data = [...userList];
     const idx = data.findIndex((ele) => ele.taiKhoan === user.taiKhoan);
+    console.log(data);
     if (idx === -1) {
       notification.error({
         message: "Người dùng không có trong danh sách",
@@ -85,6 +86,7 @@ export default function UserManagement() {
       title: "Tác vụ",
       key: "7",
       render: (text) => {
+        console.log(text);
         return (
           <div>
             <Button
