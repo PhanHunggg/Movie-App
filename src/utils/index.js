@@ -8,3 +8,9 @@ export const formatDate = (date) => {
 export const formatDateShowTime = (date) => {
   return moment(new Date(date)).format("DD/MM/yyyy hh:mm");
 };
+
+
+
+export const formatDateSearch = (date) => {
+  return moment(new Date(date)).format("DD/MM/yyyy");
+};

@@ -1,5 +1,5 @@
 .header.navbar {
-  transition: all .5s;
+  transition: all 0.5s;
   top: 0px;
   position: fixed;
   width: 100%;
@@ -13,7 +13,7 @@
       font-size: 30px;
       font-family: "Merriweather", serif;
       font-weight: bold;
-      color: #ff8906;
+      color: rgb(242, 107, 56);
     }
   }
 
@@ -22,6 +22,62 @@
     padding-right: 8px;
     border-radius: 6px;
     background-color: white;
+    position: relative;
+
+    .active {
+      position: absolute;
+      background-color: white;
+      background-color: #121629;
+      width: 100.1%;
+      height: 350px;
+      top: 32px;
+      right: 0.1px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: #eebbc3;
+      }
+      .card {
+        cursor: pointer;
+        width: 100%;
+        background-color: #121629;
+        margin-bottom: 5px;
+        .row {
+          margin-right: 0;
+          .col-4 {
+            padding-right: 5px;
+            button {
+              &:focus {
+                outline: none;
+              }
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .col-8 {
+            padding: 0;
+            .content {
+              p {
+                margin: 0;
+                color: #b8c1ec;
+                font-size: 13px;
+                font-weight: 500;
+                &:nth-of-type(2) {
+                  padding: 5px 0;
+                }
+                &:first-of-type {
+                  color: #fffffe;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
     input {
       border: none;
@@ -36,7 +92,6 @@
     button {
       border: none;
       background-color: white;
-
     }
   }
 
@@ -53,13 +108,13 @@
       }
 
       .btn-information.btn-information {
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:hover {
           color: #fff;
           background-color: #007bff;
           border-color: #007bff;
-          transition: all .3;
+          transition: all 0.3;
         }
       }
     }
@@ -115,48 +170,47 @@
       }
 
       .btn-admin.btn-admin {
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:hover {
           color: #fff;
           background-color: #28a745;
           border-color: #28a745;
           border-radius: 0;
-          transition: all .3s;
+          transition: all 0.3s;
         }
-
       }
 
       .btn-logout.btn-logout {
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:hover {
           color: #fff;
           background-color: #dc3545;
           border-color: #dc3545;
-          transition: all .3s;
+          transition: all 0.3s;
         }
       }
 
       .btn-login.btn-login {
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:hover {
           color: #fff;
           background-color: #007bff;
           border-color: #007bff;
-          transition: all .3s;
+          transition: all 0.3s;
         }
       }
 
       .btn-register.btn-register {
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:hover {
           color: #fff;
           background-color: #007bff;
           border-color: #007bff;
-          transition: all .3s;
+          transition: all 0.3s;
         }
       }
     }
@@ -165,7 +219,7 @@
 
 .header.scroll.navbar {
   background: rgb(20, 20, 20) !important;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .header.tablet {

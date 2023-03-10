@@ -1,14 +1,38 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, notification, Table } from "antd";
+import { Button, notification, Table, Input } from "antd";
 import { formatDate } from "../../utils";
 import { useNavigate } from "react-router-dom";
 import { deleteMovieApi, fetchMovieListApi } from "../../services/movie";
 import { LoadingContext } from "../../contexts/loading/LoadingContext";
+import "./movieManagement.scss";
 
 export default function MovieManagement() {
+  const { Search } = Input;
   const navigate = useNavigate();
   const [movieList, setMovieList] = useState([]);
   const [_, setLoadingState] = useContext(LoadingContext);
+  const [keyword, setKeyword] = useState("");
+
+  const handleMovieListFilter = () => {
+    const filterMovie = movieList?.filter((ele) => {
+      return (
+        ele.tenPhim
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/đ/g, "d")
+          .replace(/Đ/g, "D")
+          .toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1
+      );
+    });
+    return filterMovie;
+  };
+
+  const onSearch = (value) => console.log(value);
+
+  const handleChange = (event) => {
+    setKeyword(event.target.value);
+  };
 
   useEffect(() => {
     getMovieList();
@@ -119,17 +143,29 @@ export default function MovieManagement() {
 
   return (
     <div>
-      <Button
-        onClick={() => {
-          navigate("/admin/movie-management/add-movie");
-        }}
-        className="mb-4"
-        type="primary"
-      >
-        Thêm phim
-      </Button>
+      <div className="service">
+        <Button
+          onClick={() => {
+            navigate("/admin/movie-management/add-movie");
+          }}
+          className="mb-4"
+          type="primary"
+        >
+          Thêm phim
+        </Button>
 
-      <Table columns={columns} dataSource={movieList} />
+        <Search
+          className="search"
+          placeholder="Tìm kiếm phim..."
+          allowClear
+          enterButton="Search"
+          size="large"
+          onSearch={onSearch}
+          onChange={handleChange}
+        />
+      </div>
+
+      <Table columns={columns} dataSource={handleMovieListFilter()} />
     </div>
   );
 }

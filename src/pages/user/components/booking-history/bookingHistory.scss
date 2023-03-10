@@ -21,9 +21,17 @@
         span {
           color: #b8c1ec;
         }
-        span.chair {
+      }
+      .chair_history {
+        h6{
+          font-weight: 500;
+          font-size: 18px;
+          color: #fffffe;
+        }
+        p.chair {
+          display: inline-block;
           background-color: #eebbc3;
-          margin: 2px 5px;
+          margin: 1px 3px;
           color: #232946;
           padding: 4px 6px;
           border-radius: 4px;

@@ -1,12 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { MOBILE, TABLET } from "../../constants";
+import { withViewport } from "../../HOCs/withViewport";
 import "./modal.scss";
 
-export default function Modal() {
+function Modal({ device }) {
   const movieState = useSelector((state) => state.userReducer);
   return (
     <div
-      className="modal fade"
+      className={`modal fade  ${device === TABLET && "tablet"} ${
+        device === MOBILE && "mobile"
+      }`}
       id="exampleModal"
       tabindex="-1"
       role="dialog"
@@ -25,8 +29,6 @@ export default function Modal() {
               <span aria-hidden="true">&times;</span>
             </button>
             <iframe
-              width="650"
-              height="350"
               src={movieState?.movieDetail?.trailer}
               title="YouTube video player"
               frameborder="0"
@@ -38,3 +40,5 @@ export default function Modal() {
     </div>
   );
 }
+
+export default withViewport(Modal);

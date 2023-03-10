@@ -22,10 +22,7 @@ function BookingHistory({ device }) {
   const renderHistory = () => {
     return profile?.thongTinDatVe.map((ele) => {
       return (
-        <div
-          key={ele.maVe}
-          className={`booked_tickets mb-4 col-lg-6 col-12`}
-        >
+        <div key={ele.maVe} className={`booked_tickets mb-4 col-lg-6 col-12`}>
           <div className="card movie">
             <img src={ele.hinhAnh} className="card-img-top" alt={ele.maVe} />
           </div>
@@ -42,17 +39,20 @@ function BookingHistory({ device }) {
             </p>
             <p>Tên Rạp: {ele.danhSachGhe[0].tenHeThongRap}</p>
             <p>Rạp Chiếu: {ele.danhSachGhe[0].tenRap}</p>
-            <p>
-              Ghế đã đặt:
+            <div className="chair_history">
+              <h6>
+                Ghế đã đặt:
+               
+              </h6>
               {ele.danhSachGhe.map((ele, idx) => {
-                return (
-                  <React.Fragment key={ele.maGhe}>
-                    <span className="chair mt-3">{ele.tenGhe}</span>
-                    {idx + 1 === 3 && <p></p>}
-                  </React.Fragment>
-                );
-              })}
-            </p>
+                  return (
+                    <React.Fragment key={ele.maGhe}>
+                      <p className="chair mt-3">{ele.tenGhe}</p>
+                      {(idx + 1) % 6 === 0 && <br />}
+                    </React.Fragment>
+                  );
+                })}
+            </div>
           </div>
         </div>
       );

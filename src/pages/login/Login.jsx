@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginApi, registerAPI } from "../../services/user";
+import { loginApi } from "../../services/user";
 import { setUserAction } from "../../store/actions/userActions";
 import { WrapperForm } from "./loginStyled";
 import Swal from "sweetalert2/dist/sweetalert2.js";
@@ -17,7 +17,7 @@ function Login({ device }) {
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 2100,
+    timer: 1500,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -94,27 +94,26 @@ function Login({ device }) {
         >
           <div className="col-12 col-lg-6 form-login">
             <WrapperForm className="form">
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Username</label>
+              <form className="form" onSubmit={handleSubmit}>
+                <div className="form-group inputBox">
                   <input
+                    placeholder=" "
                     onChange={handleChange}
                     name="taiKhoan"
                     type="text"
-                    className="form-control"
+                    className="form-control form-input"
                   />
-                  <small id="emailHelp" className="form-text text-muted">
-                    We'll never share your email with anyone else.
-                  </small>
+                  <label className="form-label">Tài Khoản</label>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Password</label>
+                <div className="form-group inputBox">
                   <input
+                    placeholder=" "
                     onChange={handleChange}
                     name="matKhau"
                     type="password"
-                    className="form-control"
+                    className="form-control form-input"
                   />
+                  <label className="form-label">Mật khẩu</label>
                 </div>
                 <div className="button_submit text-center">
                   <button
