@@ -11,6 +11,7 @@ function BookingHistory({ device }) {
   const [profile, setProfile] = useState();
 
   useEffect(() => {
+    console.log(profile);
     getProfileUser();
   }, []);
 
@@ -40,18 +41,15 @@ function BookingHistory({ device }) {
             <p>Tên Rạp: {ele.danhSachGhe[0].tenHeThongRap}</p>
             <p>Rạp Chiếu: {ele.danhSachGhe[0].tenRap}</p>
             <div className="chair_history">
-              <h6>
-                Ghế đã đặt:
-               
-              </h6>
+              <h6>Ghế đã đặt:</h6>
               {ele.danhSachGhe.map((ele, idx) => {
-                  return (
-                    <React.Fragment key={ele.maGhe}>
-                      <p className="chair mt-3">{ele.tenGhe}</p>
-                      {(idx + 1) % 6 === 0 && <br />}
-                    </React.Fragment>
-                  );
-                })}
+                return (
+                  <React.Fragment key={ele.maGhe}>
+                    <p className="chair mt-3">{ele.tenGhe}</p>
+                    {(idx + 1) % 6 === 0 && <br />}
+                  </React.Fragment>
+                );
+              })}
             </div>
           </div>
         </div>

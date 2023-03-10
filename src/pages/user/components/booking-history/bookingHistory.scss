@@ -23,7 +23,7 @@
         }
       }
       .chair_history {
-        h6{
+        h6 {
           font-weight: 500;
           font-size: 18px;
           color: #fffffe;
@@ -40,15 +40,21 @@
     }
   }
 }
+.zero_chair {
+  color: #fffffe;
+  margin-bottom: 90px;
+}
 
-// .booked.tablet {
-//   .booked_tickets {
-//     .movie {
-//       width: 221px;
-//       height: 187px;
-//     }
-//     .tickets {
-//       font-size: 16px;
-//     }
-//   }
-// }
+.zero_chair.tablet {
+  height: 28.5vh;
+}
+
+.zero_chair.mobile {
+  margin-bottom: 45px;
+  h1 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+}

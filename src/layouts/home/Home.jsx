@@ -5,10 +5,10 @@ import Header from "../../components/header/Header";
 
 export default function Home() {
   return (
-    <>
+    <div className="home_layout">
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
