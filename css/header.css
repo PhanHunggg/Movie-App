@@ -19,6 +19,57 @@
   padding-right: 8px;
   border-radius: 6px;
   background-color: white;
+  position: relative;
+}
+.header.navbar .search .active {
+  position: absolute;
+  background-color: white;
+  background-color: #121629;
+  width: 100.1%;
+  height: 350px;
+  top: 32px;
+  right: 0.1px;
+  overflow-y: scroll;
+}
+.header.navbar .search .active::-webkit-scrollbar {
+  width: 10px;
+}
+.header.navbar .search .active::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #eebbc3;
+}
+.header.navbar .search .active .card {
+  cursor: pointer;
+  width: 100%;
+  background-color: #121629;
+  margin-bottom: 5px;
+}
+.header.navbar .search .active .card .row {
+  margin-right: 0;
+}
+.header.navbar .search .active .card .row .col-4 {
+  padding-right: 5px;
+}
+.header.navbar .search .active .card .row .col-4 button:focus {
+  outline: none;
+}
+.header.navbar .search .active .card .row .col-4 button img {
+  width: 100%;
+}
+.header.navbar .search .active .card .row .col-8 {
+  padding: 0;
+}
+.header.navbar .search .active .card .row .col-8 .content p {
+  margin: 0;
+  color: #b8c1ec;
+  font-size: 13px;
+  font-weight: 500;
+}
+.header.navbar .search .active .card .row .col-8 .content p:nth-of-type(2) {
+  padding: 5px 0;
+}
+.header.navbar .search .active .card .row .col-8 .content p:first-of-type {
+  color: #fffffe;
 }
 .header.navbar .search input {
   border: none;
@@ -37,7 +88,7 @@
   flex-grow: 0;
 }
 .header.navbar .user a {
-  color: #232946;
+  color: #ff8906;
   transition: all 0.5s;
   text-decoration: none;
 }
@@ -154,10 +205,11 @@
   width: 150px;
 }
 .header.tablet .user .action button {
-  width: 106px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   font-weight: 600;
   font-size: 14px;
+  margin-left: 5px;
 }
 .header.tablet .user .action .btn-admin {
   margin-top: 5px;
@@ -184,9 +236,11 @@
 }
 .header.mobile .user .action span {
   font-size: 15px;
+  margin-right: 10px !important;
 }
 .header.mobile .user .action button {
-  width: 106px;
-  font-size: 13px;
-  height: 33px;
+  width: 40px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 14px;
 }/*# sourceMappingURL=header.css.map */

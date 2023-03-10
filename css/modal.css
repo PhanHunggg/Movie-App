@@ -15,4 +15,33 @@
   right: -13px;
   opacity: 1;
   font-size: 2.5rem;
+}
+.modal .modal-dialog .modal-content .modal-body iframe {
+  width: 650px;
+  height: 350px;
+}
+
+.modal.tablet {
+  top: 56px;
+  left: -64px;
+}
+.modal.tablet .modal-content {
+  width: 591px;
+  height: 330px;
+}
+.modal.tablet .modal-content .modal-body iframe {
+  width: 590px;
+  height: 330px;
+}
+
+.modal.mobile {
+  top: 84px;
+}
+.modal.mobile .modal-content {
+  width: 477px;
+  height: 290px;
+}
+.modal.mobile .modal-content .modal-body iframe {
+  width: 479px;
+  height: 290px;
 }/*# sourceMappingURL=modal.css.map */

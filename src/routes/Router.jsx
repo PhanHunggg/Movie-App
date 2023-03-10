@@ -15,6 +15,7 @@ import MovieForm from "../pages/movie-form/MovieForm";
 import MovieListHotPage from "../pages/movie-list/MovieListHotPage";
 import MovieListPage from "../pages/movie-list/MovieListPage";
 import MovieManagement from "../pages/movieManagement/MovieManagement";
+import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import Register from "../pages/register/Register";
 import UserForm from "../pages/user-form/UserForm";
 import UserManagement from "../pages/user-management/UserManagement";
@@ -113,6 +114,10 @@ export default function Router() {
           ],
         },
       ],
+    },
+    {
+      path: "*",
+      element: <PageNotFound />,
     },
   ]);
   return routing;

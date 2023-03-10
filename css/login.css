@@ -1,1 +1,87 @@
-/*# sourceMappingURL=login.css.map */
+.form-all .inputBox {
+  position: relative;
+  display: flex;
+  margin: 37px 0px;
+}
+.form-all .inputBox:first-child {
+  margin-top: 20px;
+}
+.form-all .inputBox .form-input {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid rgb(206, 212, 218);
+  background-color: rgb(240, 242, 245);
+  border-radius: 5px;
+  outline: none;
+  color: #2d334a;
+  font-size: 1em;
+  transition: all 0.3s;
+}
+.form-all .inputBox .form-input:focus {
+  border: 2px solid #00dfc4;
+  box-shadow: none;
+}
+.form-all .inputBox .form-input:not(:-moz-placeholder-shown) + .form-label {
+  color: #00dfc4;
+  font-size: 0.75em;
+  transform: translate(10px, -7px);
+  background-color: rgb(240, 242, 245);
+  border-left: 1px solid #00dfc4;
+  border-right: 1px solid #00dfc4;
+  padding: 0 10px;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+.form-all .inputBox .form-input:not(:placeholder-shown) + .form-label, .form-all .inputBox .form-input:focus + .form-label {
+  color: #00dfc4;
+  font-size: 0.75em;
+  transform: translate(10px, -7px);
+  background-color: rgb(240, 242, 245);
+  border-left: 1px solid #00dfc4;
+  border-right: 1px solid #00dfc4;
+  padding: 0 10px;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+.form-all .inputBox .form-label {
+  position: absolute;
+  left: 2px;
+  top: 3px;
+  padding: 10px;
+  pointer-events: none;
+  color: rgb(118, 123, 126);
+  font-size: 1em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.form-all.tablet .row {
+  flex-direction: column-reverse;
+}
+.form-all.tablet .row .form-login {
+  padding-left: 150px;
+}
+.form-all.tablet .row .login-text {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.form-all.tablet .row .login-text p {
+  margin-bottom: 0;
+}
+.form-all.tablet .row .login-text h2 {
+  margin-bottom: 0;
+}
+
+.form-all.mobile .row {
+  flex-direction: column-reverse;
+}
+.form-all.mobile .row .login-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.form-all.mobile .row .login-text p {
+  margin-bottom: 0;
+}
+.form-all.mobile .row .form-login {
+  padding-left: 60px;
+}/*# sourceMappingURL=login.css.map */

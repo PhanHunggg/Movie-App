@@ -6,6 +6,7 @@
   width: 216px;
   height: 272px;
   background-color: transparent;
+  box-shadow: 6px 6px 6px 2px #888888;
 }
 .booked .booked_tickets .movie img {
   width: 100%;
@@ -19,9 +20,15 @@
 .booked .booked_tickets .tickets p span {
   color: #b8c1ec;
 }
-.booked .booked_tickets .tickets p span.chair {
+.booked .booked_tickets .tickets .chair_history h6 {
+  font-weight: 500;
+  font-size: 18px;
+  color: #fffffe;
+}
+.booked .booked_tickets .tickets .chair_history p.chair {
+  display: inline-block;
   background-color: #eebbc3;
-  margin: 2px 5px;
+  margin: 1px 3px;
   color: #232946;
   padding: 4px 6px;
   border-radius: 4px;

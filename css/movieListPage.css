@@ -141,6 +141,9 @@
   width: 300px;
 }
 
+.list-page.mobile {
+  padding-top: 100px !important;
+}
 .list-page.mobile .filter-moviePage .movie .card {
   width: 250px;
   height: 400px;
