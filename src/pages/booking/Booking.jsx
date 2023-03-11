@@ -45,8 +45,7 @@ export default function Booking() {
   };
   return (
     <div style={{ padding: "165px 0 60px" }} className="booking">
-      <div className="row">
-        <SeatDetail />
+      <div className="row mr-0">
         <SeatList
           handleSeatSelect={handleSeatSelect}
           movieDetail={movieDetail.danhSachGhe}
