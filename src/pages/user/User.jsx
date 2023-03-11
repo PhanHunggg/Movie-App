@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { MOBILE, TABLET } from "../../constants";
+import { withViewport } from "../../HOCs/withViewport";
 import { fetchProfileUser } from "../../services/user";
 import BookingHistory from "./components/booking-history/BookingHistory";
 
 import Profile from "./components/profile/Profile";
 import "./user.scss";
 
-export default function User() {
+function User({ device }) {
   const params = useParams();
   const [profile, setProfile] = useState();
 
@@ -69,9 +71,22 @@ export default function User() {
           role="tabpanel"
           aria-labelledby="pills-home-tab"
         >
-          <BookingHistory profile={profile} />
+          {profile?.thongTinDatVe?.length ? (
+            <BookingHistory profile={profile} />
+          ) : (
+            <div
+              className={`zero_chair text-center ${
+                device === TABLET && "tablet"
+              } ${device === MOBILE && "mobile"}`}
+            >
+              <h1>Bạn chưa có giao dịch nào</h1>
+              <h4>Hãy đặt vé để trải nghiệm cùng Cyber Cinema nhé!</h4>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
+
+export default withViewport(User);

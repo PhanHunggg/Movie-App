@@ -27,6 +27,15 @@
     }
   }
   .theater {
+    max-height: 350px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background-color: #eebbc3;
+    }
     .time {
       h5 {
         color: #fffffe;
@@ -39,11 +48,12 @@
         .btn_date {
           margin-bottom: 25px;
           .date {
+            display: inline-block;
             color: #232946;
             text-decoration: none;
             transition: all 0.3s;
-            width: 50px;
-            height: 25px;
+            width: 167px;
+            height: 38px;
             background-color: #eebbc3;
             padding: 7px 15px;
             border-radius: 4px;
@@ -96,6 +106,8 @@
           .date {
             padding: 6px 6px;
             font-size: 15px;
+            width: 133px;
+            height: 36px;
           }
         }
       }

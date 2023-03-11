@@ -1,26 +1,71 @@
+<<<<<<< HEAD
 .not__found {
+=======
+.page_not_found {
+  height: 100vh;
+  position: relative;
+  .not__found {
+>>>>>>> 4f6ac376f45c1a33c460895b42c0cb76c4f26e0b
     position: absolute;
-    left: 35%;
-    top: 40%;
+    left: 36%;
+    top: 69%;
     font-size: 50px;
     font-weight: 700;
     text-transform: uppercase;
-}
+  }
 
+<<<<<<< HEAD
 .not__found__404 {
+=======
+  .not__found__404 {
+>>>>>>> 4f6ac376f45c1a33c460895b42c0cb76c4f26e0b
     position: absolute;
-    left: 37%;
-    top: 10%;
     font-size: 200px;
     font-weight: 700;
     text-transform: uppercase;
+    left: 38%;
+  }
+
+  .img__notfound {
+    img {
+      position: absolute;
+      left: 33%;
+      top: 26%;
+      z-index: -1;
+    }
+  }
 }
 
-.img__notfound {
+.page_not_found.tablet {
+  .not__found__404 {
+    left: 28%;
+    top: 13%;
+  }
+  .img__notfound {
     img {
-        position: absolute;
-        bottom: 15%;
-        left: 31%;
-        z-index: -1;
+      left: 18%;
+      top: 32%;
     }
+  }
+  .not__found {
+    left: 24%;
+    top: 62%;
+  }
+}
+
+.page_not_found.mobile {
+  .not__found__404 {
+    left: 21%;
+    top: 11%;
+  }
+  .img__notfound {
+    img {
+      left: 7%;
+      top: 32%;
+    }
+  }
+  .not__found {
+    left: 15%;
+    top: 67%;
+  }
 }
