@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { MOBILE, TABLET } from "../../constants";
 import { withViewport } from "../../HOCs/withViewport";
 import { fetchProfileUser } from "../../services/user";
@@ -9,6 +9,7 @@ import Profile from "./components/profile/Profile";
 import "./user.scss";
 
 function User({ device }) {
+  const navigate = useNavigate();
   const params = useParams();
   const [profile, setProfile] = useState();
 
@@ -81,6 +82,13 @@ function User({ device }) {
             >
               <h1>Bạn chưa có giao dịch nào</h1>
               <h4>Hãy đặt vé để trải nghiệm cùng Cyber Cinema nhé!</h4>
+              <button
+                onClick={() => {
+                  navigate("/movie-list");
+                }}
+              >
+                Đặt vé
+              </button>
             </div>
           )}
         </div>

@@ -1,5 +1,4 @@
-import { notification } from "antd";
-import { deleteMovieApi } from "../../services/movie";
+
 import {
   FETCH_BANNER_LIST,
   FETCH_CHAIR_LIST,

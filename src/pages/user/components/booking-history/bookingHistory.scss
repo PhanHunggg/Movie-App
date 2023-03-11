@@ -43,6 +43,24 @@
 .zero_chair {
   color: #fffffe;
   margin-bottom: 90px;
+  button {
+    margin: 20px 0;
+    padding: 10px 36px;
+    background-color: #eebbc3;
+    color: #232946;
+    font-size: 18px;
+    border: none;
+    border-radius: 7px;
+    font-weight: 500;
+    transition: all 0.5s;
+    &:hover{
+      background-color: rgb(242, 107, 56);
+      color: white;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
 }
 
 .zero_chair.tablet {

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { fetchMovieListAction } from "../../../../store/actions/userActions";
 import "./movieList.scss";
 import SwiperCore, { Virtual, Navigation, Pagination, Autoplay } from "swiper";
