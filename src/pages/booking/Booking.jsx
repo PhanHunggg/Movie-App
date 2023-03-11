@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { LoadingContext } from "../../contexts/loading/LoadingContext";
 import { fetchTicketDetailApi } from "../../services/ticket";
-import SeatDetail from "./components/seatDetail/SeatDetail";
 import SeatList from "./components/seatList/SeatList";
 import SeatListSelect from "./components/seatListSelect/SeatListSelect";
 
@@ -27,8 +25,6 @@ export default function Booking() {
     const result = await fetchTicketDetailApi(params.showTimeId);
 
     setMovieDetail(result.data.content);
-
-    // console.log(movieDetail);
   };
 
   const handleSeatSelect = (seat) => {
