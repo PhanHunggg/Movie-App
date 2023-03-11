@@ -1,21 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import "./PageNotFound.scss";
-
-import { withViewport } from "../../HOCs/withViewport";
-import { DESKTOP, LAPTOP, MOBILE, TABLET } from "../../constants";
-
-function PageNotFound({ device }) {
-  return (
-    <>
-      <span
-        className={`not__found__404 ${device === TABLET && "tablet"} ${
-          device === MOBILE && "mobile"
-        } ${device === LAPTOP && "laptop"} ${device === DESKTOP && "desktop"}`}
-      >
-        404
-      </span>
-=======
 import { MOBILE, TABLET } from "../../constants";
 import { withViewport } from "../../HOCs/withViewport";
 import "./PageNotFound.scss";
@@ -27,7 +10,6 @@ function PageNotFound({ device }) {
       }`}
     >
       <span className="not__found__404">404</span>
->>>>>>> 4f6ac376f45c1a33c460895b42c0cb76c4f26e0b
       <span className="not__found">page not found</span>
       <div className="img__notfound">
         <img
@@ -35,11 +17,7 @@ function PageNotFound({ device }) {
           alt=""
         />
       </div>
-<<<<<<< HEAD
-    </>
-=======
     </div>
->>>>>>> 4f6ac376f45c1a33c460895b42c0cb76c4f26e0b
   );
 }
 
