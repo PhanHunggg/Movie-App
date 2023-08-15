@@ -49,9 +49,9 @@ function Login({ device }) {
   };
 
   useEffect(() => {
-    // if () {
+  
     setLoadingState({ isLoading: false });
-    // }
+  
   }, []);
 
   const handleSubmit = async (event) => {
